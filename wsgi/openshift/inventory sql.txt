@@ -1,0 +1,108 @@
+delete from inventory_itempembelian;
+delete from inventory_pembelian;
+delete from inventory_itemopname;
+delete from inventory_opname;
+delete from inventory_itemmutasi;
+delete from inventory_mutasi;
+delete from inventory_itemkonversi;
+delete from inventory_konversi;
+delete from inventory_itembcdtmap;
+delete from inventory_bcdtmap;
+delete from inventory_itemdokumenpabean;
+delete from inventory_dokumenpabean;
+delete from inventory_jurnallayerstock;
+delete from inventory_layerstock;
+delete from inventory_jurnalbarang;
+update inventory_barangdiinventory set saldo=0;
+
+
+
+delete from inventory_harga;
+delete from inventory_supplier;
+delete from inventory_barangdiinventory;
+delete from inventory_barang;
+delete from inventory_inventory;
+delete from inventory_perusahaan;
+delete from inventory_customer;
+delete from inventory_referensi;
+
+INSERT INTO `inventory_referensi` (`id`, `nama`, `grup`, `keterangan`, `nilai`, `num`) VALUES
+	(1, 'Grup', '00', 'Grup Untuk \r\n\r\nGrup', '01', 0),
+	(2, 'JENIS INVENTORY', '00', 'Grup Untuk \r\n\r\nJenis Inventory', '02', 0),
+	(3, 'FISIK', '02', 'Jenis \r\n\r\nInventory Fisik', NULL, 0),
+	(4, 'VIRTUAL', '02', 'Jenis \r\n\r\nInventory \r\n\r\nVirtual', NULL, 0),
+	(5, 'METODE INVENTORY', '00', 'Metode \r\n\r\ninventory yang \r\n\r\ndigunakan', '03', 0),
+	(6, 'FIFO', '03', 'First In \r\n\r\nFirst Out', NULL, 0),
+	(7, 'LIFO', '03', 'Last In \r\n\r\nFirst Out', NULL, 0),
+	(8, 'JENIS INCREMENT', '00', 'GRUP INCREMENT', '04', 0),
+	(18, 'JENIS DOK PABEAN', '00', 'GRUP PABEAN', '06', 0),
+	(9, 'INCREMENT RENCANA \r\n\r\nPEMBELIAN', '04', 'Incremental control rencana \r\n\r\npembelian', '2012', 39),
+	(10, 'JENIS TRANSAKSI \r\n\r\nBARANG', '00', 'GRUP JENIS TRANSAKSI BARANG', '05', 0),
+	(11, 'Pembelian', '05', 'Jenis Transaksi Pembelian', NULL, 0),
+	(12, 'Penjualan', '05', 'Jenis Transaksi Penjualan', NULL, 0),
+	(13, 'INCREMENT RENCANA PENJUALAN', '04', 'Incremental control rencana penjualan', '2012', 0),
+	(14, 'INCREMENT MAPPING BC 23', '04', 'Incremental control Mapping Dokumen BC 2.3', '2012', 0),
+	(16, 'INCREMENT KONVERSI', '04', 'Incremental control Konversi Produksi', '2012', 0),
+	(17, 'INCREMENT opname', '04', 'Incremental control Konversi Produksi', '2012', 0),
+	(15, 'INCREMENT MUTASI', '04', 'Incremental control Mutasi Dokumen', '2012', 0),
+	(19, 'BC 3.0', '06', 'Dokumen Pabean Ekspor', '2012', 0),
+	(20, 'BC 2.5', '06', 'Dokumen Pabean DPIL', '2012', 0),
+	(22, 'BC 2.7 Inward', '06', 'Dokumen Pemasukan dari KB Lain', '2012', 0),
+	(23, 'BC 2.7 Outward', '06', 'Dokumen Pengeluaran menuju KB Lain', '2012', 0),
+	(21, 'INCREMENT DOK PABEAN', '04', 'Incremental control Dokumen Pabean', '2012', 0);
+
+INSERT INTO `inventory_perusahaan` (`id`, `nama`, `alamat`, `keterangan`, `pemilik`, `area`, `telp`, `mobile`, `email`) 
+
+VALUES
+	(1, 'TEJO', 'Rawamangun', 'Baru Berdiri', 'Tejo', NULL, NULL, NULL, NULL);
+
+ 
+
+INSERT INTO `inventory_barang` (`id`, `nama`, `merk`, `kode`, `harga`, `satuan`, `tag`, `keterangan`, `perusahaan_id`) VALUES (1, 'LED Monitor 17"', 'Samsung', 'LMS', 1200000.00, 'PCE', 'monitor led', NULL, NULL);
+INSERT INTO `inventory_barang` (`id`, `nama`, `merk`, `kode`, `harga`, `satuan`, `tag`, `keterangan`, `perusahaan_id`) VALUES (2, 'LCD Monitor 19"', 'DELL', 'LMD', 1100000.00, 'PCE', 'lcd monitor', NULL, NULL);
+INSERT INTO `inventory_barang` (`id`, `nama`, `merk`, `kode`, `harga`, `satuan`, `tag`, `keterangan`, `perusahaan_id`) VALUES (3, 'Wifi Router b/g/n', 'Linksys', 'WRL', 320000.00, 'PCE', 'wifi router hub wireless', NULL, NULL);
+INSERT INTO `inventory_barang` (`id`, `nama`, `merk`, `kode`, `harga`, `satuan`, `tag`, `keterangan`, `perusahaan_id`) VALUES (4, 'Mother Board Intel PC 5400', 'ASUS', 'MBA', 2300000.00, 'pce', 'mother board mobo intel', NULL, NULL);
+INSERT INTO `inventory_barang` (`id`, `nama`, `merk`, `kode`, `harga`, `satuan`, `tag`, `keterangan`, `perusahaan_id`) VALUES (5, 'Keyboard USB', 'HP', 'KUH', 175000.00, 'PCE', 'keyboard', NULL, NULL);
+INSERT INTO `inventory_barang` (`id`, `nama`, `merk`, `kode`, `harga`, `satuan`, `tag`, `keterangan`, `perusahaan_id`) VALUES (35, 'VGA Card Ati Radeon 9100 1.5GB', 'ATI', 'VCA', 2200000.00, 'PCE', 'vga card ati', NULL, NULL);
+INSERT INTO `inventory_barang` (`id`, `nama`, `merk`, `kode`, `harga`, `satuan`, `tag`, `keterangan`, `perusahaan_id`) VALUES (36, 'Memory DDR 3 PC 5300 8GB', 'VGEN', 'VGN', 560000.00, 'PCE', 'memory ddr3', NULL, NULL);
+INSERT INTO `inventory_barang` (`id`, `nama`, `merk`, `kode`, `harga`, `satuan`, `tag`, `keterangan`, `perusahaan_id`) VALUES (37, 'Hardisk HDD 500 GB', 'SEAGATE', 'HDS', 475000.00, 'PCE', 'hardisk 500', NULL, NULL);
+
+
+INSERT INTO `inventory_customer` (`id`, `nama`, `alamat`, `area`, `telp`, `mobile`, `email`, `keterangan`) VALUES (1, 'ZYREC ltd', 'Jl. Daan Mogot No.59\nJakarta 11470\nIndonesia', '622', '5653311', '021332', 'zyrec@gmail.com', NULL);
+INSERT INTO `inventory_customer` (`id`, `nama`, `alamat`, `area`, `telp`, `mobile`, `email`, `keterangan`) VALUES (2, 'ACER Computers', 'Acer America Corporation\n333 West San Carlos Street\nSuite 1500\nSan Jose, CA 95110', '800', '8162237', NULL, 'support@acer.com', NULL);
+
+
+
+INSERT INTO `inventory_supplier` (`id`, `nama`, `alamat`, `negara`, `area`, `telp`, `mobile`, `email`, `keterangan`) VALUES (1, 'ASUS Electronics', 'ASUS Computer International\n800 Corporate Way\nFremont, CA 94539', NULL, '510', '7393777', '08568405584', 'asus@gmail.com', NULL);
+INSERT INTO `inventory_supplier` (`id`, `nama`, `alamat`, `negara`, `area`, `telp`, `mobile`, `email`, `keterangan`) VALUES (2, 'Google Electronics td', '75 Ninth Avenue 2nd and 4th Floors New York', NULL, '+121', '25650000', '08998350852', 'gh@gmail.com', NULL);
+INSERT INTO `inventory_supplier` (`id`, `nama`, `alamat`, `negara`, `area`, `telp`, `mobile`, `email`, `keterangan`) VALUES (5, 'Silicon Valey Inc', 'Microsoft Corporation\nOne Microsoft Way\nRedmond, WA 98052-6399\nUSA', NULL, '6423', '88599022', '081332588', 'sval@hotmail.com', NULL);
+INSERT INTO `inventory_supplier` (`id`, `nama`, `alamat`, `negara`, `area`, `telp`, `mobile`, `email`, `keterangan`) VALUES (6, 'Hanzeng Part Supplies', 'Medieval Auto Center 53st Shanghai, China', NULL, '+988', '899078', '+76422883333', 'autocenter@gmail.com', NULL);
+
+
+INSERT INTO `inventory_harga` (`id`, `harga`, `awal`, `akhir`, `keterangan`, `barang_id`) VALUES (1, 2200000.00, '2012-05-24', NULL, 'initial value', 35);
+INSERT INTO `inventory_harga` (`id`, `harga`, `awal`, `akhir`, `keterangan`, `barang_id`) VALUES (2, 560000.00, '2012-05-26', NULL, 'initial value', 36);
+INSERT INTO `inventory_harga` (`id`, `harga`, `awal`, `akhir`, `keterangan`, `barang_id`) VALUES (3, 475000.00, '2012-05-29', NULL, 'initial value', 37);
+
+
+
+INSERT INTO `inventory_inventory` (`id`, `nama`, `alamat`, `keterangan`, `jenis_id`, `metode_id`, `perusahaan_id`) VALUES
+	(1, 'Main Warehouse', 'Rawamangun', 'Gudang utama', 3, 6, NULL),
+	(2, 'WIP', 'Rawamangun', 'Barang dalam Proses', 3, 6, NULL),
+	(3, 'Finished', 'Rawamangun', 'Finished', 3, 6, NULL);
+
+INSERT INTO `inventory_barangdiinventory` (`id`, `barang_id`, `inventory_id`, `saldo`) VALUES
+	(1, 1, 1, 0.00),
+	(9, 1, 2, 0.00),
+	(2, 2, 1, 0.00),
+	(3, 3, 1, 0.00),
+	(10, 3, 2, 0.00),
+	(4, 4, 1, 0.00),
+	(5, 5, 1, 0.00),
+	(6, 35, 1, 0.00),
+	(7, 36, 1, 0.00),
+	(12, 4, 2, 0.00),
+	(11, 5, 2, 0.00),
+	(13, 36, 2, 0.00) ,
+	(8, 37, 1, 0.00);
+
+ 
