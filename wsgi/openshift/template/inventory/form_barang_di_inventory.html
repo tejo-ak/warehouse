@@ -1,0 +1,62 @@
+<div style="
+            background-color:#393939;border-color: #808080;font-size: 14px;
+            color:#ffffff;width: 100%;height:25px;padding-left: 0px"
+        >Form Detail Barang
+</div>
+<div style="
+            border-bottom:1px solid #393939; height:3px"
+        >&nbsp;</div><br/>
+<form dojoType="dojox.form.Manager" id='formBarang'>
+    <table border="0" width="100%" cellpadding="0" cellspacing="0">
+        <input type="hidden" style="width:60%;" id="id"
+               name='id'>
+        <input type="hidden" style="width:60%;" id="barang_id"
+               name='barang_id'>
+        <input type="hidden" style="width:60%;" id="inventory_id"
+               name='inventory_id'>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">Nama</td>
+            <td width="70%" class="formcell"><input dojoType="dijit.form.TextBox" style="width:60%;"
+                                                    name='nama'></td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">Merk</td>
+            <td width="70%" class="formcell"><input dojoType="dijit.form.TextBox" style="width:60%;"
+                                                    name='merk'></td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">Kode</td>
+            <td width="70%" class="formcell">
+                <input dojoType="dijit.form.TextBox" style="width:60%;" style="width:60%;" name='kode'>
+            </td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">Harga</td>
+            <td width="70%" class="formcell">
+                <input dojoType="dijit.form.TextBox" style="width:60%;" style="width:60%;text-align: right"
+                       name='harga'>
+            </td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">Satuan</td>
+            <td width="70%" class="formcell">
+                <input dojoType="dijit.form.TextBox" style="width:60%;" style="width:60%;" name='satuan'>
+            </td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">Tag</td>
+            <td width="70%" class="formcell">
+                <input dojoType="dijit.form.TextBox" style="width:60%;" style="width:60%;" name='tag'>
+            </td>
+        </tr>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">&nbsp;</td>
+            <td width="70%" class="formcell">
+                <button dojoType="dijit.form.Button" id="btnSimpanBarang">Simpan</button>
+                <button dojoType="dijit.form.Button" id="btnUpdateBarang">Update</button>
+                <button dojoType="dijit.form.Button" id="btnHapusBarang">Hapus</button>
+            </td>
+        </tr>
+    </table>
+</form>

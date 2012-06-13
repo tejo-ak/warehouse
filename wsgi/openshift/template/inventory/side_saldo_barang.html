@@ -1,0 +1,17 @@
+<div style="width:100%;font:12px verdana;font-weight: bold" class="formcell">
+    {{barang_nama}}
+</div>
+{%for saldo in daftar_saldo%}
+<div style="width:100%;font:12px verdana;color:gray">
+    {{saldo.inventory.nama}}
+</div>
+<div class="formcell" style="font:12px verdana;text-align: right;border-top-width: 2px;border-top-style: dotted;">
+    {{saldo.saldo}}
+</div>
+{% endfor %}
+<div>
+    Total
+</div>
+<div>
+    {{total}}
+</div>

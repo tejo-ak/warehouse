@@ -1,0 +1,42 @@
+<div style="
+            background-color:#393939;border-color: #808080;font-size: 14px;
+            color:#ffffff;width: 100%;height:25px;padding-left: 0px"
+        >Upload Foto Barang
+</div>
+<div style="
+            border-bottom:1px solid #393939; height:3px"
+        >&nbsp;</div><br/>
+<table width="100%" height="90%" border="0">
+    <tr valign="top">
+        <td style="padding-left: 0px" valign="top" width="50%">
+            <div class="siderLabel">File:</div>
+            <form method="post" target="tesi" action="/inventory/barang/" id="myForm"
+                  enctype="multipart/form-data" style="width:100%;">
+                <input type="hidden" name="c" value="upload"/>
+                <input type="hidden" name="id" value="upload"/>
+                <input name="uploadedfile" multiple="false" type="file" style="width:100%;"
+                       id="uploader"/>
+                <br/>
+                <input type="submit" class="btnKirimFile" value="Kirim File"/>
+
+                <div class="uploadStatus"></div>
+            </form>
+            <iframe id="tes" name="tes" style="display:none;"></iframe>
+            <!--<form method="post" action="/inventory/barang/" id="myForm"-->
+            <!--enctype="multipart/form-data">-->
+            <!--&lt;!&ndash;<input type="hidden" name="c" value="upload"/>&ndash;&gt;-->
+            <!--<input type="hidden" name="c" value="upload"/>-->
+            <!--<input name="uploadedfile" multiple="false" type="file"-->
+            <!--data-dojo-type="dojox.form.Uploader" label="Browse File" id="uploader"/>-->
+            <!--<br/>-->
+            <!--<input type="submit" label="Kirim File" data-dojo-type="dijit.form.Button"/>-->
+            <!--</form>-->
+
+        </td>
+        <td style="padding-left: 0px" width="50%">
+            <div class="siderLabel">Image:</div>
+            <div class="uploadImage" style="width:100%;"></div>
+        </td>
+    </tr>
+
+</table>

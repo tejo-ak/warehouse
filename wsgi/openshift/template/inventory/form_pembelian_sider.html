@@ -1,0 +1,16 @@
+<div class="siderLabel">Dokumen</div>
+<div>{{nomor}}</div>
+<div>{{tanggal}}</div>
+<br/>
+<div class="siderLabel">Supplier</div>
+<div>{{nama}}</div>
+<div>{{alamat}}</div>
+<br/>
+<div class="siderLabel">Item</div>
+{% for brg in items %}
+<div>&nbsp;&nbsp;-<a style="text-decoration: underline;font-weight: bold">{{brg.nama}}</a></div>
+<div style="color:#808080;">&nbsp;&nbsp;&nbsp;{{brg.merk}}</div>
+<div style="color:#808080;">&nbsp;&nbsp;&nbsp;{{brg.jumlah}} {{brg.satuan}}</div>
+<div style="color:#808080;">&nbsp;&nbsp;&nbsp;@ {{brg.harga}}</div>
+<div style="height: 5px">&nbsp;</div>
+{% endfor %}

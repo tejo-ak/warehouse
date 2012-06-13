@@ -1,0 +1,60 @@
+{% load humanize %}
+<table id="dgSupplier" cellpadding="0" cellspacing="0" style="border: 1px #dedede solid;width:100%;"
+        >
+    <tr style=" background-color:#cdcdcd;">
+        <td width="50%" class="borderbtgt">Debet</td>
+        <td width="50%" class="borderbt">Kredit</td>
+    </tr>
+    <tr>
+        <td valign="top">
+            <table cellpadding="0" cellspacing="0"
+                   style="width: 100%">
+                <tr style=" background-color:#dddddd;">
+                    <td class="borderbtgt" width="25%">Tanggal</td>
+                    <td class="borderbtgt" width="60%">Keterangan</td>
+                    <td class="borderbtgt" width="15%" align="right">Qty</td>
+                </tr>
+
+                <tr>
+                    <td class="borderbtgt">{{tglsaldoawal|date:"d-M-Y"}}</td>
+                    <td class="borderbtgt">Saldo Awal</td>
+                    <td class="borderbtgt" align="right">{{saldoawal|intcomma}}</td>
+                </tr>
+                {% for dbt in debet %}
+                <tr style="{{forloop.counter|divisibleby:2|yesno:',background-color:#f2f5f9'}};">
+                    <td class="borderbtgt">{{dbt.waktu|date:"d-M-Y"}}</td>
+                    <td class="borderbtgt">{{dbt.keterangan}}</td>
+                    <td class="borderbtgt" align="right">{{dbt.jumlah|intcomma}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </td>
+        <td valign="top">
+            <table cellpadding="1" cellspacing="0"
+                   style="width: 100%;">
+                <tr style=" background-color:#dddddd;">
+                    <td class="borderbtgt" width="25%">Tanggal</td>
+                    <td class="borderbtgt" width="60%">Keterangan</td>
+                    <td class="borderbt" width="15%">Qty</td>
+
+                </tr>
+                {% for kdt in kredit %}
+                <tr style="{{forloop.counter|divisibleby:2|yesno:'background-color:#f2f5f9,'}};">
+                    <td class="borderbtgt">{{kdt.waktu|date:"d-M-Y"}}</td>
+                    <td class="borderbtgt">{{kdt.keterangan}}</td>
+                    <td class="borderbt" align="right">{{kdt.jumlah|intcomma}}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td class="borderbtgt">{{tglsaldoakhir|date:"d-M-Y"}}</td>
+                    <td class="borderbtgt">Saldo Akhir</td>
+                    <td class="borderbt" align="right">{{saldoakhir|intcomma}}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td width="50%" align="right">Total.&nbsp;&nbsp;&nbsp;{{saldototal|intcomma}}</td>
+        <td width="50%" align="right">Total.&nbsp;&nbsp;&nbsp;{{saldototal|intcomma}}</td>
+    </tr>
+</table>

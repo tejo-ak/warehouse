@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    padding: 2em;
+    font-family: Lucida Sans, Lucida Grande, Arial !important;
+    font-size: 13px !important;
+    background: white;
+    color: #333;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+/* Any demo specific styling needed for this tutorial only */
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+#appLayout {
+    height: 100%;
+}
+
+#leftCol {
+    width: 14em;
+}
+
+.soria .edgePanel {
+    background-color: #d0e9fc;
+}
+
+#gdBukutamu {
+    width: 350px;
+}
+
+.textBerita {
+    font: 10px verdana;
+}
+
+.dndDropIndicator {
+    border: 2px dashed #99BBE8;
+    cursor: default;
+    margin-bottom: 5px;
+}
+
+.gridContainer {
+    overflow-y: auto;
+}
+
+.dijitTitlePaneContentInner {
+    cursor: default
+}
+
+.formrow {
+}
+
+.formcell {
+    vertical-align: top;
+    padding-bottom: 8px
+}
+
+.cellborder {
+    border: 1px solid #9797ed
+}
+
+.tableborder {
+    border: 1px solid #9797ed
+}
+
+.tabLabelDisable {
+    color: #808080;
+}
+
+.siderLabel {
+    font-size: 10px;
+    color: gray;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.siderLabelDark {
+    font-size: 10px;
+    color: gray;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+.darker {
+    background-color: #efefef
+}
+
+.shadow {
+    background-image: url("../img/shadow.gif");
+    background-repeat: repeat-x;
+}
+
+.gridContainerZone > * {
+    padding: 0px !important;
+    margin: 2px 2px 6px 2px !important;
+}
+
+.soria .dijitTabContainerTop-dijitContentPane, .soria .dijitTabContainerLeft-dijitContentPane, .soria .dijitTabContainerBottom-dijitContentPane, .soria .dijitTabContainerRight-dijitContentPane, .soria .dijitAccordionContainer-dijitContentPane {
+    padding: 2px;
+}
+
+/*border system*/
+.borderbt {
+    border-bottom: 1px #cdcdcd dotted;
+    padding: 3px
+}
+
+.borderbtgt {
+    border-bottom: 1px #cdcdcd dotted;
+    border-right: 1px #cdcdcd dotted;
+    padding: 3px
+}
+
+.bordergt {
+    border-right: 1px #cdcdcd dotted;
+    padding: 3px
+}
+
+.soria .dijitSplitContainer-dijitContentPane, .soria .dijitBorderContainer-dijitContentPane {
+    padding: 0px ! important;
+    margin: 0px ! important;
+    left: 0 ! important;
+    /*top: 0 !important;*/
+    width: 100% !important;
+}

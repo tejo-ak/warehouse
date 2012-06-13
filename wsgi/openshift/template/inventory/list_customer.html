@@ -1,0 +1,16 @@
+<div style="width:100%;">
+    <span style="width: 20%">Search:</span>
+    <input dojoType="dijit.form.TextBox" id="txtCariCustomer" intermediateChanges="true" style="width: 60%"/>
+    <button dojoType="dijit.form.Button" id="btnCariCustomer" style="width: 20%">Go</button>
+</div>
+<br/>
+<table id="dgCustomer" dojoType="dojox.grid.DataGrid"
+       region="top" minSize="20" splitter="true"
+       style="width: 100%;height: 300px">
+    <thead>
+    <th field="nama" width="100%">Customer</th>
+    <th field="alamat" width="100%">Alamat</th>
+    <th field="area" width="100%">Area</th>
+    <th field="telp" width="100%">Telp</th>
+    </thead>
+</table>

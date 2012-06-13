@@ -1,0 +1,36 @@
+<div style="
+            background-color:#393939;border-color: #808080;font-size: 14px;
+            color:#ffffff;width: 100%;height:25px;padding-left: 0px"
+        >Stock Opname
+</div>
+<div style="
+            border-bottom:1px solid #393939; height:3px"
+        >&nbsp;</div>
+<form dojoType="dojox.form.Manager" id='formOpname'>
+    <input type="hidden" dojoType="dijit.form.TextBox" style="width:60%;" name='barang_id'>
+    <table border="0" width="100%" cellpadding="0" cellspacing="0">
+        <input type="hidden" dojoType="dijit.form.TextBox" style="width:60%;"  name="id">
+        <input type="hidden" dojoType="dijit.form.TextBox" style="width:60%;" name='inventory_id'>
+        <tr class="formrow" valgn="top">
+            <td width="50%" class="formcell formrow darker" valign="top">
+                <div class="siderLabel"> Nomor</div>
+
+                <input dojoType="dijit.form.TextBox" tabindex="-1" style="width:90%;"
+                       name='no_opname'>
+                <br/>
+
+                <div class="siderLabel">Tanggal</div>
+                <input class="formcell" dojoType="lib.CustomDatebox" tabindex="-1" style="width:90%;"
+                       name='tgl_opname'></div>
+            </td>
+            <td width="50%" class="formcell darker">
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+    <div class="siderLabel shadow">&nbsp;</div>
+    <div style="width:100%; height: 400px" id='dgItemBarang'>
+
+    </div>
+    <button dojoType="lib.CustomButton" name='btnSimpanOpname' >Simpan Stock Opname!</button>
+</form>

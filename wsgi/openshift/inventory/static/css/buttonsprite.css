@@ -1,0 +1,159 @@
+.male {
+    width: 30px;
+    height: 30px;
+    background-position: 0px, 0px;
+    background-image: url('../../site_media/img/gender.gif');
+}
+
+.female {
+    width: 30px;
+    height: 30px;
+    background-position: -30px, 0px;
+    background-image: url('../../site_media/img/gender.gif');
+}
+
+.btnBorder {
+    border-top: 1px solid #06c1ff;
+    border-left: 1px solid #06c1ff;
+    border-bottom: 1px solid #06c1ff;
+}
+
+.btnBorderEnd {
+    border-top: 1px solid #06c1ff;
+    border-left: 1px solid #06c1ff;
+    border-bottom: 1px solid #06c1ff;
+    border-right: 1px solid #06c1ff;
+}
+
+.btnNew {
+    width: 50px;
+    height: 50px;
+    background-position: 0px, 0px;
+    cursor: none;
+    background-image: url('../../site_media/img/sprite_crud_hover.gif');
+    display: inline-block;
+}
+
+.btnNew:hover {
+    border-color: #c47dfb;
+    width: 50px;
+    height: 50;
+    background-position: 0px, 0px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/sprite_crud.gif');
+    display: inline-block;
+}
+
+.btnEdit {
+    width: 50px;
+    height: 50px;
+    background-position: -50px, 0px;
+    cursor: none;
+    background-image: url('../../site_media/img/sprite_crud_hover.gif');
+    display: inline-block;
+}
+
+.btnEdit:hover {
+    border-color: #c47dfb;
+    width: 50px;
+    height: 50;
+    background-position: -50px, 0px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/sprite_crud.gif');
+    display: inline-block;
+}
+
+.btnLookup {
+    width: 50px;
+    height: 50px;
+    background-position: -100px, 0px;
+    cursor: none;
+    background-image: url('../../site_media/img/sprite_crud_hover.gif');
+    display: inline-block;
+}
+
+.btnLookup:hover {
+    border-color: #c47dfb;
+    width: 50px;
+    height: 50;
+    background-position: -100px, 0px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/sprite_crud.gif');
+    display: inline-block;
+}
+
+.btnDel {
+    width: 50px;
+    height: 50px;
+    background-position: -150px, 0px;
+    cursor: none;
+    background-image: url('../../site_media/img/sprite_crud_hover.gif');
+    display: inline-block;
+}
+
+.btnDel:hover {
+    border-color: #c47dfb;
+    width: 50px;
+    height: 50;
+    background-position: -150px, 0px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/sprite_crud.gif');
+    display: inline-block;
+}
+
+.btnSimpan {
+    width: 50px;
+    height: 50px;
+    background-position: -200px, 0px;
+    cursor: none;
+    background-image: url('../../site_media/img/sprite_crud_hover.gif');
+    display: inline-block;
+}
+
+.btnSimpan:hover {
+    border-color: #c47dfb;
+    width: 50px;
+    height: 50;
+    background-position: -200px, 0px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/sprite_crud.gif');
+    display: inline-block;
+}
+
+.btnRefresh {
+    width: 50px;
+    height: 50px;
+    background-position: -300px, 0px;
+    cursor: none;
+    background-image: url('../../site_media/img/sprite_crud_hover.gif');
+    display: inline-block;
+}
+
+.btnRefresh:hover {
+    border-color: #c47dfb;
+    width: 50px;
+    height: 50px;
+    background-position: -300px, 0px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/sprite_crud.gif');
+    display: inline-block;
+}
+
+.btnShow {
+    width: 50px;
+    height: 50px;
+    background-position: -250px, 0px;
+    cursor: none;
+    background-image: url('../../site_media/img/sprite_crud_hover.gif');
+    display: inline-block;
+}
+
+.btnShow:hover {
+    border-color: #c47dfb;
+    width: 50px;
+    height: 50px;
+    background-position: -250px, 0px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/sprite_crud.gif');
+    display: inline-block;
+}

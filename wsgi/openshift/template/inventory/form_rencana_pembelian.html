@@ -1,0 +1,132 @@
+<form dojoType="dojox.form.Manager" id='formRencanaPembelian'>
+    <table border="0" width="100%" cellpadding="0" cellspacing="0">
+        <input type="hidden" style="width:60%;" id="id" name='id'>
+        <input type="hidden" style="width:60%;" id="barang_id" name='barang_id'>
+        <input type="hidden" style="width:60%;" id="supplier_id" name='supplier_id'>
+        <tr class="formrow">
+            <td width="50%" class="formcell formrow">
+                <div class="formcell" style="font:14px verdana;font-weight:bold">
+                    Rencana Pembelian
+                </div>
+                <div>
+                    No Rencana Pembelian
+                </div>
+                <div class="formcell">
+                    <input dojoType="dijit.form.TextBox" style="width:90%;" id="no_rencana_pembelian"
+                           name='no_rencana_pembelian'></div>
+                <div>
+                    Tanggal
+                </div>
+                <div>
+                    <input class="formcell" dojoType="dijit.form.DateTextBox" style="width:90%;"
+                           id="tgl_rencana_pembelian"
+                           name='tgl_rencana_pembelian'></div>
+            </td>
+            <td width="50%" class="formcell">
+                <div style="font:14px verdana;font-weight:bold">
+                    Supplier
+                </div>
+                <div>
+                    Nama
+                </div>
+                <div class="formcell">
+                    <input dojoType="dijit.form.TextBox" style="width:90%;" id='supplier_nama'
+                           intermediateChanges="true"
+                           name='supplier_nama'></div>
+                <div>
+                    Alamat
+                </div>
+                <div class="formcell">
+                    <textarea dojoType="dijit.form.Textarea" rows='3' style="width:90%;"
+                              name='supplier_alamat'></textarea>
+                </div>
+                <div>
+                    Telp
+                </div>
+                <div class="formcell">
+                    <input dojoType="dijit.form.TextBox" style="width:90%;"
+                           name='supplier_mobile'></div>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="formcell" style="font:14px verdana;font-weight:bold">
+                    Item Pembelian
+                </div>
+                <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="formcell" width="30%">Barang</td>
+                        <td width="70%"><input dojoType="dijit.form.TextBox" style="width:90%;"
+                                               intermediateChanges="true"
+                                               id="barang_nama"
+                                               name='barang_nama'></td>
+                    </tr>
+                    <tr>
+                        <td class="formcell">Qty</td>
+                        <td><input dojoType="dijit.form.TextBox" style="width:100px;"
+                                   id='barang_qty'
+                                   name='barang_qty'>
+                            <input dojoType="dijit.form.TextBox" style="width:50px;"
+                                   name='barang_satuan'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="formcell">Harga</td>
+                        <td><input dojoType="dijit.form.TextBox" style="width:100px;"
+                                   id='barang_harga'
+                                   name='barang_harga'></td>
+                    </tr>
+                    <tr>
+                        <td class="formcell">Saldo</td>
+                        <td><input dojoType="dijit.form.TextBox" style="width:100px;"
+                                   name='barang_saldo'></td>
+                    </tr>
+                    <tr>
+                        <td class="formcell">&nbsp;</td>
+                        <td>
+                            <input type="button" id="btnSimpanItemPembelian" value="simpan"/>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <br/>
+
+                <div class="formcell" style="font:14px verdana;font-weight:bold">
+                    Daftar Pembelian
+                </div>
+                <table id="dgItemPembelian" dojoType="dojox.grid.DataGrid"
+                       region="top" minSize="20" splitter="true"
+                       style="width: 100%;height: 100px">
+                    <thead>
+                    <tr>
+                        <th field="nama" width="120px">Barang</th>
+                        <th field="merk" width="140px">Merk</th>
+                        <th field="satuan" width="50px">Satuan</th>
+                        <th field="jumlah" width="50px">Qty</th>
+                        <th field="harga" width="150px">Harga</th>
+                        <th field="sub" width="150px">Sub</th>
+                    </tr>
+                    </thead>
+                </table>
+                <div class="formcell">&nbsp;</div>
+                <div>
+                    Total
+                </div>
+                <div class="formcell">
+                    <input dojoType="dijit.form.TextBox" style="width:150px;"
+                           name='total'></div>
+            </td>
+        </tr>
+        <tr class="formrow">
+            <!--<td class="formcell formrow">&nbsp;</td>-->
+            <td colspan="2" class="formcell">
+                <input type="button" id="btnSimpanRencanaPembelian" value="simpan"/>
+                <!--<button dojoType="dijit.form.Button" id="btnSimpanRencanaPembelian">Simpan</button>-->
+                <button dojoType="dijit.form.Button" id="btnUpdateRencanaPembelian">Update</button>
+                <button dojoType="dijit.form.Button" id="btnHapusRencanaPembelian">Hapus</button>
+            </td>
+        </tr>
+    </table>
+</form>

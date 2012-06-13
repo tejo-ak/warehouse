@@ -1,0 +1,60 @@
+<form dojoType="dojox.form.Manager" id='formInventory'>
+    <table border="0" width="100%" cellpadding="0" cellspacing="0">
+        <input type="hidden" style="width:60%;" id="id"
+               name='id'>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">Nama</td>
+            <td width="70%" class="formcell"><input dojoType="dijit.form.TextBox" style="width:60%;" id="nama"
+                                                    name='nama'></td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">Keterangan</td>
+            <td width="70%" class="formcell"><input dojoType="dijit.form.TextBox" style="width:60%;" id="keterangan"
+                                                    name='keterangan'></td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">Alamat</td>
+            <td width="70%" class="formcell">
+                <textarea dojoType="dijit.form.Textarea" rows='3' style="width:60%;" name='alamat'></textarea>
+            </td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">Jenis Inventory</td>
+            <td width="70%" class="formcell">
+                <!--<div data-dojo-type="dojo.store.Memory"-->
+                <!--data-dojo-id="jnsIdStore"-->
+                <!--data-dojo-props="data:-->
+                <!--[{id: 3, name: 'Fisik'}, {id: 4, name: 'Virtual'}]">-->
+                <!--</div>-->
+                <select dojoType="dijit.form.Select" style="width:60%;" name='jnsInventory'>
+                    <option value="3">Fisik</option>
+                    <option value="4">Virtual</option>
+                </select>
+
+            </td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">Metode Inventory</td>
+            <td width="70%" class="formcell">
+                <!--<div data-dojo-type="dojo.store.Memory"-->
+                <!--data-dojo-id="jnsIdStore"-->
+                <!--data-dojo-props="data:-->
+                <!--[{id: 3, name: 'Fisik'}, {id: 4, name: 'Virtual'}]">-->
+                <!--</div>-->
+                <select dojoType="dijit.form.Select" style="width:60%;" name='jnsMetode'>
+                    <option value="6">FIFO</option>
+                    <!--<option value="7">LIFO</option>-->
+                </select>
+
+            </td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">&nbsp;</td>
+            <td width="70%" class="formcell">
+                <button dojoType="dijit.form.Button" id="btnSimpanInventory">Simpan</button>
+                <button dojoType="dijit.form.Button" id="btnUpdateInventory">Update</button>
+                <button dojoType="dijit.form.Button" id="btnHapusInventory">Hapus</button>
+            </td>
+        </tr>
+    </table>
+</form>

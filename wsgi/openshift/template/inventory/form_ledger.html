@@ -1,0 +1,37 @@
+<div style="
+            background-color:#393939;border-color: #808080;font-size: 14px;
+            color:#ffffff;width: 100%;height:25px;padding-left: 0px"
+        >Ledger Barang
+</div>
+<div style="
+            border-bottom:1px solid #393939; height:3px"
+        >&nbsp;</div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+    <tr valign="top">
+        <td style="padding-left: 0px;background-color: #efefef" valign="top" width="50%">
+            <div class="siderLabel">Barang</div>
+            <input dojoType="lib.LookupTextbox" style="width:90%;"
+                   lookupUrl="/inventory/barang/"
+                   lookupParam="{c:'lookupbarang'}"
+                   detailer="barangDetail"
+                   idField="id"
+                   idName="barang_id"
+                   detailFilter="nama,merk,satuan,harga,kode"
+                   name='barang_nama'></div>
+            <input type='hidden' dojoType='dijit.form.TextBox' name='barang_id'>
+            <input type='hidden' dojoType='dijit.form.TextBox' name='inventory_id'>
+            <br/><br/>
+
+            <div class="siderLabel">Tanggal dalam Periode</div>
+            <input dojoType='lib.CustomDatebox' style="width:90%;" name='tanggal'>
+            <button name="btnShowLedger" dojoType="lib.CustomButton">Tampilkan</button>
+        </td>
+        <td style="padding-left: 5px;background-color: #efefef" width="50%">
+            <div id="barangDetail">Detail Barang Warehouse</div>
+
+        </td>
+    </tr>
+</table>
+<div class="shadow siderLabel">&nbsp;</div>
+<div class="ledger_bowl" style="padding: 1px"></div>

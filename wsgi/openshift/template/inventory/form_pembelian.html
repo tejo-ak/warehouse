@@ -1,0 +1,116 @@
+<!--modifikasi dari form pembelian yang lama, semoga masih banyak yang bisa di gunakan ulang-->
+<div style="
+            background-color:#393939;border-color: #808080;font-size: 14px;
+            color:#ffffff;width: 100%;height:25px;padding-left: 0px"
+        >Pembelian
+</div>
+<div style="
+            border-bottom:1px solid #393939; height:3px"
+        >&nbsp;</div>
+<form dojoType="dojox.form.Manager" id='formPembelian'>
+    <input type="hidden" dojoType="dijit.form.TextBox" style="width:60%;" name='barang_id'>
+    <table border="0" width="100%" cellpadding="0" cellspacing="0">
+        <input type="hidden" dojoType="dijit.form.TextBox" style="width:60%;" id="id" name='id'>
+
+        <input type="hidden" dojoType="dijit.form.TextBox" style="width:60%;" name='supplier_id'>
+        <tr class="formrow" valign="top">
+            <td width="50%" class="formcell formrow darker" valign="top">
+                <div class="siderLabel"> Nomor</div>
+
+                <input dojoType="dijit.form.TextBox" tabindex="-1" style="width:90%;"
+                       name='no_rencana_pembelian'>
+                <br/>
+
+                <div class="siderLabel">Tanggal</div>
+                <input class="formcell" dojoType="lib.CustomDatebox" tabindex="-1" style="width:90%;"
+                       name='tgl_rencana_pembelian'></div>
+            </td>
+            <td width="50%" class="formcell darker">
+                <div class="siderLabel"> Supplier</div>
+                <input dojoType="lib.LookupTextbox" tabindex="0" style="width:90%;"
+                       lookupUrl="/inventory/supplier/"
+                       lookupParam="{c:'lookupsupplier'}"
+                       detailer="supplierDetail"
+                       detailFilter="nama,alamat"
+                       idField="id"
+                       idName="supplier_id"
+                       name='supplier_nama'>
+
+                <div id="supplierDetail"></div>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <div class="siderLabel shadow">&nbsp;</div>
+                <div class="formcell" style="font:14px verdana;color:#808080;font-weight:bold">
+                    Item Pembelian
+                </div>
+                <div class="siderLabel">Barang</div>
+                <input dojoType="lib.LookupTextbox" style="width:90%;"
+                       lookupUrl="/inventory/barang/"
+                       lookupParam="{c:'lookupbarang'}"
+                       detailer="barangDetail"
+                       idField="id"
+                       idName="barang_id"
+                       detailFilter="nama,merk,satuan,harga,kode"
+                       name='barang_nama'>
+
+                <div class="siderLabel">Qty</div>
+                <input dojoType="dijit.form.TextBox" style="width:100px;"
+                       name='barang_qty'>
+
+                <div class="siderLabel">Harga</div>
+                <input dojoType="dijit.form.TextBox" style="width:100px;"
+                       name='barang_harga'>
+                <br/>
+                <button dojoType="lib.CustomButton" name="btnSimpanItemPembelian">Simpan</button>
+            </td>
+            <td valign="top">
+                <div class="siderLabel shadow">&nbsp;</div>
+                <div class="formcell" style="font:14px verdana;color:#808080;font-weight:bold">
+                    Detail Barang
+                </div>
+                <div id="barangDetail">
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <br/>
+
+                <div class="formcell" style="font:14px verdana;font-weight:bold">
+                    Daftar Pembelian
+                </div>
+                <table style="height:200px" id="dgItemPembelian" dojoType="dojox.grid.DataGrid"
+                       region="top" splitter="true"
+                       style="width: 100%;">
+                    <thead>
+                    <tr>
+                        <th field="nama" width="40%">Barang</th>
+                        <th field="jumlah" width="10%">Qty</th>
+                        <th field="satuan" width="10%">Satuan</th>
+                        <th field="harga" width="20%">Harga</th>
+                        <th field="sub" width="20%">Sub Total</th>
+                    </tr>
+                    </thead>
+                </table>
+                <div class="formcell">&nbsp;</div>
+                <div>
+                    Total
+                </div>
+                <div class="formcell">
+                    <input dojoType="dijit.form.TextBox" style="width:150px;"
+                           name='total'>
+                    <button dojoType="lib.CustomButton" name="btnSimpanPembelian">Simpan</button>
+                </div>
+            </td>
+        </tr>
+        <!--<tr class="formrow">-->
+        <!--&lt;!&ndash;<td class="formcell formrow">&nbsp;</td>&ndash;&gt;-->
+        <!--<td colspan="2" class="formcell">-->
+        <!--<button dojoType="lib.CustomButton" id="btnSimpanPembelian">Simpan</button>-->
+        <!--</td>-->
+        <!--</tr>-->
+    </table>
+</form>

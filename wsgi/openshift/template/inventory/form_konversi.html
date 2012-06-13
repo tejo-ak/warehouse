@@ -1,0 +1,134 @@
+<!--modifikasi dari form mutasi yang lama, semoga masih banyak yang bisa di gunakan ulang-->
+<div style="
+            background-color:#393939;border-color: #808080;font-size: 14px;
+            color:#ffffff;width: 100%;height:25px;padding-left: 0px"
+        >Konversi Barang
+</div>
+<div style="
+            border-bottom:1px solid #393939; height:3px"
+        >&nbsp;</div>
+<form dojoType="dojox.form.Manager" id='formKonversi'>
+    <input type="hidden" dojoType="dijit.form.TextBox" style="width:60%;" name='barang_id'>
+    <table border="0" width="100%" cellpadding="0" cellspacing="0">
+        <input type="hidden" dojoType="dijit.form.TextBox" style="width:60%;" id="id" name='id'>
+
+        <input type="hidden" dojoType="dijit.form.TextBox" style="width:60%;" name='inventory_id' value="2"/>
+        <tr class="formrow" valgn="top">
+            <td width="50%" class="formcell formrow darker" valign="top">
+                <div class="siderLabel"> Nomor</div>
+
+                <input dojoType="dijit.form.TextBox" tabindex="-1" style="width:90%;"
+                       name='no_konversi'>
+                <br/>
+
+                <div class="siderLabel">Tanggal</div>
+                <input class="formcell" dojoType="lib.CustomDatebox" tabindex="-1" style="width:90%;"
+                       name='tgl_konversi'></div>
+            </td>
+            <td width="50%" class="formcell darker">
+                &nbsp;
+            </td>
+        </tr>
+        <!--ISIAN INPUT KONVERSI-->
+        <!--====================-->
+        <tr>
+            <td valign="top">
+                <div class="siderLabel shadow">&nbsp;</div>
+                <div class="formcell" style="font:14px verdana;color:#808080;font-weight:bold">
+                    Input
+                </div>
+                <div class="siderLabel">Barang</div>
+                <input dojoType="lib.LookupTextbox" style="width:90%;"
+                       lookupUrl="/inventory/barang/"
+                       lookupParam="{c:'lookupbdi'}"
+                       idField="id"
+                       idName="barang_id"
+                       name='barang_nama'>
+                <input type="hidden" dojoType="dijit.form.TextBox" style="width:100px;"
+                       name='barang_id'>
+
+                <div class="siderLabel">Qty</div>
+                <input dojoType="dijit.form.TextBox" style="width:100px;"
+                       name='barang_qty'>
+                <button dojoType="lib.CustomButton" name="btnSimpanInputItem">Simpan</button>
+            </td>
+            <td valign="top">
+                <div class="siderLabel shadow">&nbsp;</div>
+                <div class="formcell" style="font:14px verdana;color:#808080;font-weight:bold">
+                    Daftar Input
+                </div>
+                <div id="divDaftarInput">
+
+                </div>
+            </td>
+        </tr>
+        <!--ISIAN OUTPUT KONVERSI-->
+        <!--====================-->
+        <tr>
+            <td valign="top">
+                <div class="siderLabel shadow">&nbsp;</div>
+                <div class="formcell" style="font:14px verdana;color:#808080;font-weight:bold">
+                    Produk
+                </div>
+                <div class="siderLabel">Barang</div>
+                <input dojoType="lib.LookupTextbox" style="width:90%;"
+                       lookupUrl="/inventory/barang/"
+                       lookupParam="{c:'lookupbdi' }"
+                       idField="id"
+                       idName="barang_produksi_id"
+                       name='barang_produksi_nama'>
+                <input type="hidden" dojoType="dijit.form.TextBox" style="width:100px;"
+                       name='barang_produksi_id'>
+
+                <div class="siderLabel">Qty</div>
+                <input dojoType="dijit.form.TextBox" style="width:100px;"
+                       name='barang_produksi_qty'>
+                <button dojoType="lib.CustomButton" name="btnSimpanProdukItem">Simpan</button>
+            </td>
+            <td valign="top">
+                <div class="siderLabel shadow">&nbsp;</div>
+                <div class="formcell" style="font:14px verdana;color:#808080;font-weight:bold">
+                    Daftar Produk
+                </div>
+                <div id="divDaftarProduk">
+
+                </div>
+            </td>
+        </tr>
+        <!--ISIAN PRODUK SAMPINGAN KONVERSI-->
+        <!--====================-->
+        <tr>
+            <td valign="top">
+                <div class="siderLabel shadow">&nbsp;</div>
+                <div class="formcell" style="font:14px verdana;color:#808080;font-weight:bold">
+                    Produk Sampingan
+                </div>
+                <div class="siderLabel">Barang</div>
+                <input dojoType="lib.LookupTextbox" style="width:90%;"
+                       lookupUrl="/inventory/barang/"
+                       lookupParam="{c:'lookupbdi'}"
+                       idField="id"
+                       idName="barang_produksi_sampingan_id"
+                       name='barang_produksi_sampingan_nama'>
+                <input type="hidden" dojoType="dijit.form.TextBox" style="width:100px;"
+                       name='barang_produksi_sampingan_id'>
+
+                <div class="siderLabel">Qty</div>
+                <input dojoType="dijit.form.TextBox" style="width:100px;"
+                       name='barang_produksi_sampingan_qty'>
+
+                <button dojoType="lib.CustomButton" name="btnSimpanByProdukItem">Simpan</button>
+            </td>
+            <td valign="top">
+                <div class="siderLabel shadow">&nbsp;</div>
+                <div class="formcell" style="font:14px verdana;color:#808080;font-weight:bold">
+                    Daftar Produk Sampingan
+                </div>
+                <div id="divDaftarByProduk">
+
+                </div>
+            </td>
+        </tr>
+    </table>
+    <button dojoType="lib.CustomButton" name="btnSimpanKonversi">Simpan Konversi</button>
+</form>

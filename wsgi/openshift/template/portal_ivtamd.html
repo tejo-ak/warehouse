@@ -1,0 +1,99 @@
+<!--DOCTYPE HTML-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Kaber WH</title>
+
+    <!--<link rel="stylesheet" href="/dojolib/dijit/themes/claro/claro.css" media="screen">-->
+    <link rel="stylesheet" href="{{dj}}dijit/themes/soria/soria.css" media="screen">
+    <link rel="stylesheet" href="{{dj}}dojo/resources/dojo.css">
+    <link rel="stylesheet" href="{{dj}}dojox/layout/resources/GridContainer.css">
+    <link rel="stylesheet" href="{{dj}}dojox/layout/resources/DndGridContainer.css">
+    <link rel="stylesheet" href="{{dj}}dojox/widget/Portlet/Portlet.css">
+    <link rel="stylesheet" href="{{dj}}dojox/grid/resources/soriaGrid.css">
+    <link rel="stylesheet" href="{{dj}}dojox/grid/resources/Grid.css">
+    <link rel="stylesheet" href="{{dj}}dojox/image/resources/image.css">
+    <link rel="stylesheet" href="{{dj}}dojox/widget/Toaster/Toaster.css">
+    <link rel="stylesheet" href="/site_media/css/style.css" media="screen">
+    <link rel="stylesheet" href="/site_media/css/buttonsprite.css" media="screen">
+    <script>
+        dojoConfig = {
+            dojoBlankHtmlUrl:'/blank.html', isDebug:true, async:true,
+            parseOnLoad:false, packages:[
+                {
+                    name:"lib",
+                    location:"/site_media/lib"
+                },
+                {
+                    name:"mod",
+                    location:"/site_media/mod"
+                }
+            ]
+        };
+    </script>
+    <script src="{{dj}}dojo/dojo{{djExt}}">
+    </script>
+
+    <script>
+        //bootstrap here
+        require(['dojo',
+            'dojo/parser',
+            'dojo/domReady!',
+            'dijit/layout/BorderContainer',
+            'dijit/layout/TabContainer',
+            'dijit/layout/ContentPane',
+            'dijit/layout/AccordionContainer',
+            'dijit/layout/AccordionPane',
+            'dojox/layout/GridContainer',
+            'dojox/widget/Portlet',
+            'dojox/widget/Toaster'
+
+        ], function (dojo, parser, starter) {
+                    parser.parse();
+                    require(['mod/ivt/StartApp', 'mod/ivt/MainMenu'], function (starter) {
+
+                    })
+                }
+        )
+    </script>
+</head>
+<body class="soria" id="mainBody" style="display: block;margin: 0;padding: 0">
+<div id="appLayout" class="demoLayout" data-dojo-type="dijit.layout.BorderContainer"
+     data-dojo-props="design: 'headline'" style="padding:0;">
+
+    <div id="tabber" data-dojo-type="dijit.layout.TabContainer" region="center" tabPosition="bottom"
+         style="width: 65%;" doLayout="true">
+
+    </div>
+    <div id="gridSider" dojoType="dojox.layout.GridContainer" splitter="true"
+         region="right"
+         acceptTypes="dojox.widget.Portlet t"
+         nbZones="1"
+         style="width:20%;padding: 0px"
+         allowAutoScroll="true"
+         isAutoOrganized="false"
+         opacity="0.5"
+         withHandles="true"
+         handleClasses="dijitTitlePaneTitle"
+            >
+
+    </div>
+
+    <div class="edgePanel" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region: 'top'"
+         style="font:18px  verdana;font-weight: bold;left: 0;top:0;width:100%;height:30px;">
+        Tabbeds System [<a style="font:12px  verdana;color:gray">KB Warehousing</a>]
+    </div>
+
+    <div dojoType="dijit.layout.AccordionContainer" id="accordion"
+         region="leading" minSize="20" style="width:15%;" splitter="true">
+        <div id="menuPane" dojoType="dijit.layout.ContentPane" title="Menu">
+            <div style='width:100%' id='menuContent'></div>
+        </div>
+        <div dojoType="dijit.layout.ContentPane" title="Lookup"></div>
+    </div>
+</div>
+<div data-dojo-type="dojox.widget.Toaster" data-dojo-props="positionDirection:'br-left'"
+     id="toaster">
+</div>
+</body>
+</html>

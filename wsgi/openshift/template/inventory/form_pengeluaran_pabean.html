@@ -1,0 +1,181 @@
+<!--modifikasi dari form pengeluaranpabean yang lama, semoga masih banyak yang bisa di gunakan ulang-->
+<div style="
+            background-color:#393939;border-color: #808080;font-size: 14px;
+            color:#ffffff;width: 100%;height:25px;padding-left: 0px"
+        >Dokumen Pabean &nbsp;<a name='jenis_dokumen'>&nbsp;</a>
+</div>
+<div style="
+            border-bottom:1px solid #393939; height:3px"
+        >&nbsp;</div>
+<form dojoType="dojox.form.Manager" id='formPengeluaranPabean'>
+    <input type="hidden" dojoType="dijit.form.TextBox" style="width:60%;" name='barang_id'>
+    <input type="hidden" dojoType="dijit.form.TextBox" style="width:60%;" name='inventory_id'>
+    <input type="hidden" dojoType="dijit.form.TextBox" style="width:60%;" name='jenisDokumen_id'>
+    <table border="0" width="100%" cellpadding="0" cellspacing="0">
+        <input type="hidden" dojoType="dijit.form.TextBox" style="width:60%;" id="id" name='id'>
+
+        <input type="hidden" dojoType="dijit.form.TextBox" style="width:60%;" name='supplier_id'>
+        <tr class="formrow" valign="top">
+            <td width="50%" class="formcell formrow darker" valign="top">
+                <div class="siderLabel"> Nomor</div>
+
+                <input dojoType="dijit.form.TextBox" tabindex="-1" style="width:90%;"
+                       name='nomor'>
+                <br/>
+
+                <div class="siderLabel">Tanggal</div>
+                <input class="formcell" dojoType="lib.CustomDatebox" tabindex="-1" style="width:90%;"
+                       name='tanggal'></div>
+            </td>
+            <td width="50%" class="formcell darker">
+
+            </td>
+        </tr>
+        <tr class="formrow" valign="top">
+            <td width="50%" class="formcell formrow" valign="top">
+                <div class="siderLabel shadow">&nbsp;</div>
+                <div style=" text-align:right;font:14px verdana;color:#808080;font-weight:bold">
+                    Header Dokumen
+                </div>
+                <div class="siderLabel">Nomor Dokumen Pabean</div>
+                <input dojoType="dijit.form.TextBox" tabindex="1" style="width:90%;"
+                       name='nomorDokumen'/>
+                <br/>
+
+                <div class="siderLabel">Tanggal Dokumen Pabean</div>
+                <input dojoType="lib.CustomDatebox" tabindex="2" style="width:90%;"
+                       name='tanggalDokumen'/>
+                <br/><br/>
+
+                <div class="siderLabel">Kantor Pabean</div>
+                <input dojoType="dijit.form.TextBox" tabindex="3" style="width:90%;"
+                       name='kantor'/>
+                <br/><br/>
+
+                <div class="siderLabel">Valuta</div>
+                <input dojoType="dijit.form.TextBox" tabindex="4" style="width:90%;"
+                       name='valuta'/>
+                <br/>
+
+                <div class="siderLabel">NDPBM</div>
+                <input dojoType="dijit.form.TextBox" tabindex="5" style="width:90%;"
+                       name='ndpbm'/>
+            <td width="50%" class="formcell formrow">
+                <div class="siderLabel shadow">&nbsp;</div>
+                <div style=" text-align:left;font:14px verdana;color:#808080;font-weight:bold">
+                    &nbsp;Pabean
+                </div>
+                <div class="siderLabel">Nomor BL/AWB</div>
+                <input dojoType="dijit.form.TextBox" tabindex="5" style="width:90%;"
+                       name='noBl'/>
+                <br/>
+
+                <div class="siderLabel">Tanggal BL</div>
+                <input dojoType="lib.CustomDatebox" tabindex="6" style="width:90%;"
+                       name='tanggalBl'/>
+                <br/><br/>
+
+                <div class="siderLabel">Nomor BC 1.1</div>
+                <input dojoType="dijit.form.TextBox" tabindex="7" style="width:90%;"
+                       name='nomorBc11'/>
+                <br/>
+
+                <div class="siderLabel">Tanggal BC 1.1</div>
+                <input dojoType="lib.CustomDatebox" tabindex="8" style="width:90%;"
+                       name='tanggalBc11'/>
+                <br/><br/>
+
+                <div class="siderLabel">Nomor Invoice</div>
+                <input dojoType="dijit.form.TextBox" tabindex="9" style="width:90%;"
+                       name='nomorInvoice'/>
+                <br/>
+
+                <div class="siderLabel">Tanggal Invoice</div>
+                <input dojoType="lib.CustomDatebox" tabindex="10" style="width:90%;"
+                       name='tanggalInvoice'/>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+
+                <div class="formcell" style="font:14px verdana;color:#808080;font-weight:bold">
+                    Item Barang
+                </div>
+                <div class="siderLabel">Barang</div>
+                <input dojoType="lib.LookupTextbox" style="width:90%;"
+                       lookupUrl="/inventory/barang/"
+                       lookupParam="{c:'lookupbarang'}"
+                       detailer="barangDetail"
+                       idField="id"
+                       tabindex="11"
+                       idName="barang_id"
+                       detailFilter="nama,merk,satuan,harga,kode"
+                       name='barang_nama'>
+
+                <div class="siderLabel">HS Code</div>
+                <input dojoType="dijit.form.TextBox" style="width:60%;"
+                       name='hs'>
+
+                <div class="siderLabel">Uraian Barang</div>
+                <input dojoType="dijit.form.TextBox" style="width:60%;"
+                       name='uraian'>
+
+                <div class="siderLabel">Merk</div>
+                <input dojoType="dijit.form.TextBox" style="width:60%;"
+                       name='merk'>
+
+                <div class="siderLabel">Qty</div>
+                <input dojoType="dijit.form.TextBox" style="width:60%;"
+                       name='barang_qty'>
+
+                <div class="siderLabel">Harga</div>
+                <input dojoType="dijit.form.TextBox" style="width:60%;"
+                       name='barang_harga'>
+                <br/>
+
+                <div class="siderLabel">Nilai Pabean</div>
+                <input dojoType="dijit.form.TextBox" style="width:60%;"
+                       name='nilaiPabean'>
+                <br/>
+
+                <div class="siderLabel">Pungutan Bayar</div>
+                <input dojoType="dijit.form.TextBox" style="width:60%;"
+                       name='pungutanBayar'>
+                <br/>
+
+                <div class="siderLabel">Pungutan Bebas</div>
+                <input dojoType="dijit.form.TextBox" style="width:60%;"
+                       name='pungutanBebas'>
+                <br/>
+                <button dojoType="lib.CustomButton" name="btnSimpanItemPengeluaranPabean">Simpan</button>
+            </td>
+            <td valign="top">
+                <div class="formcell" style="font:14px verdana;color:#808080;font-weight:bold">
+                    Detail Barang
+                </div>
+                <div id="barangDetail">
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <br/>
+
+                <div class="formcell" style="font:14px verdana;font-weight:bold">
+                    Daftar Item Barang
+                </div>
+                <div id='dgItemBarang' style="width:100%;height: 350px"></div>
+                <div class="formcell">&nbsp;</div>
+                <div>
+                    Total
+                </div>
+                <div class="formcell">
+                    <input dojoType="dijit.form.TextBox" style="width:150px;"
+                           name='total'>
+                    <button dojoType="lib.CustomButton" name="btnSimpanPengeluaranPabean">Simpan</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>
