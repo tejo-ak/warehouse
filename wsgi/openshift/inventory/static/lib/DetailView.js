@@ -12,12 +12,12 @@ require([
     "dijit/_WidgetBase" ,
     "dojo/dom-construct",
     "dijit/_Templated" ,
-    "dojo/dom",
+    "lib/dojote",
     "dijit/form/Button" ,
     "dojox/grid/DataGrid",
     "dijit/_FocusMixin"
 
-], function (declare, parser, ready, _WidgetBase, domConstruct, _Templated, dom) {
+], function (declare, parser, ready, _WidgetBase, domConstruct, _Templated, dojote) {
 
     declare("lib.DetailView", [_WidgetBase, _Templated, dijit._FocusMixin], {
         // counter
@@ -25,6 +25,10 @@ require([
         _setDataAttr:function (data) {
             this._set('data', data);
             this.build();
+        },
+        labelClass:'siderLabel',
+        _setLabelClassAttr:function (labelClass) {
+            this._set('labelClass', labelClass);
         },
         def:"",
         widgetsInTemplate:true,
@@ -38,12 +42,21 @@ require([
             this.clear();
             if (this.data) {
                 for (dt in this.data) {
+                    var label, isi;
+                    if (dt.indexOf('+') != -1) {
+                        var lbl = dt.split('+')
+                        label = (lbl[0]) ? lbl[0] : '' + '&nbsp;' + (lbl[1]) ? lbl[1] : '';
+                        isi =(this.data[lbl[0]])?this.data[lbl[0]]:'' + '&nbsp;' + (this.data[lbl[1]])?this.data[lbl[1]]:'';
+                    } else {
+                        label = dt;
+                        isi = this.data[dt];
+                    }
                     var lbl = dojo.doc.createElement("div");
-                    dojo.addClass(lbl, 'siderLabel');
-                    lbl.innerHTML = dt;
+                    dojo.addClass(lbl, this.labelClass);
+                    lbl.innerHTML = label;
                     this.dvContainer.appendChild(lbl);
                     var val = dojo.doc.createElement("div");
-                    val.innerHTML = this.data[dt];
+                    val.innerHTML = isi;
                     this.dvContainer.appendChild(val);
                     var brs = dojo.doc.createElement('div');
                     dojo.style(brs, 'height', '8px');

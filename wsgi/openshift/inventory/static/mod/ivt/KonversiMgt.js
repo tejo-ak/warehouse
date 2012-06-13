@@ -95,7 +95,6 @@ define(['dojo',
             }), 'Error simpan data');
         },
         onSimpanKonversiItem:function (ctlprefix, kredebit, jenisProduk) {
-            console.log(ctlprefix)
             var par = {c:'simpanitemkonversi',
                 kredebit:kredebit,
                 inventory_id:dojote.dijitByName('inventory_id').get('value'),
@@ -259,9 +258,6 @@ define(['dojo',
             dojote.callXhrJsonPost('/inventory/konversi/', {id:id, c:'getitemkonversi',
                 kredebit:kredebit, jenisProduk:jenisProduk, a:20}, dojo.hitch(
                 this, function (jresp) {
-                    console.log('observe jrep')
-                    console.log(jresp);
-                    console.log(id);
                     var gridInstance = "";
                     if ('K' == kredebit)
                         gridInstance = "divDaftarInput";

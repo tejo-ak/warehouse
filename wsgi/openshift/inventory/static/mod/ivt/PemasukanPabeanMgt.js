@@ -61,8 +61,6 @@ define(['dojo',
             dojote.dijitByName('inventory_id').set('value', arg.inventory_id);
             dojote.dijitByName('jenisDokumen_id').set('value', arg.jenisDokumen);
             dojote.callXhrJsonPost('/inventory/pabean/', {c:'getjenisdokumen', jenisDokumen:arg.jenisDokumen}, dojo.hitch(this, function (e) {
-                console.log('observe jenis dok')
-                console.log(e)
                 if (tabUtil.cekTab(this.formPemasukanPabean)) {
                     var namadok = dojote.byName('jenis_dokumen', this.formPemasukanPabean.domNode)
                     if (namadok)

@@ -172,8 +172,6 @@ define(['dojo',
         prepareDaftarMutasi:function (id) {
             dojote.callXhrJsonPost('/inventory/mutasi/', {id:id, c:'getitemmutasi', a:20}, dojo.hitch(
                 this, function (jresp) {
-                    console.log('observe jrep')
-                    console.log(jresp)
                     dijit.byId('dgItemBarang').setStore(
                         new dojo.data.ObjectStore(
                             {objectStore:new dojo.store.Memory({data:jresp})}));

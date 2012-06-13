@@ -1,3 +1,4 @@
+{% load humanize %}
 <div class="siderLabel">Nama</div>
 <div>{{nama}}</div>
 <br/>
@@ -8,7 +9,7 @@
 <div>{{kode}}</div>
 <br/>
 <div class="siderLabel">Harga</div>
-<div>{{harga}}</div>
+<div style="text-align: right">{{harga|intcomma}}</div>
 <br/>
 <div class="siderLabel">Satuan</div>
 <div>{{satuan}}</div>

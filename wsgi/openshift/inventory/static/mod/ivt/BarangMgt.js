@@ -14,8 +14,9 @@ define(['dojo',
     'dojox/form/Manager',
     'dijit/form/TextBox',
     'lib/CustomDatebox',
-    'lib/CustomButton',
-    'lib/LookupParam'
+    'lib/LookupParam',
+    'lib/CustomGrid',
+    'lib/CustomButton'
 ], function (dojo, parser, dijit, tabUtil, accordUtil, dojote) {
 
     var singleton = {
@@ -157,7 +158,7 @@ define(['dojo',
                     })}
 
                 ];
-                this.gdHasilPencarian = new dojox.grid.DataGrid({
+                this.gdHasilPencarian = new lib.CustomGrid({
                     store:null, id:'gdHasilPencarian',
                     structure:barangLayout
                 }, dojo.query('.dicHasilPencarian')[0]);

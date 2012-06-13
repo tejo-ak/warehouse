@@ -138,13 +138,10 @@ require([
                 accordUtil.openMenu();
             },
             setValue:function (val) {
-                console.log('setting the value of lookup param')
                 if (!val) {
                     this.formLookup.reset();
                     return'';
                 }
-                console.log('observe value')
-                console.log(val)
                 this.formLookup.setFormValues(val)
             },
             onKeyPress:function (e) {

@@ -15,13 +15,13 @@
         <input type="hidden" dojoType="dijit.form.TextBox" style="width:60%;" name='supplier_id'>
         <tr class="formrow" valign="top">
             <td width="50%" class="formcell formrow darker" valign="top">
-                <div class="siderLabel"> Nomor</div>
+                <div class="siderLabelDark"> Nomor</div>
 
                 <input dojoType="dijit.form.TextBox" tabindex="-1" style="width:90%;"
                        name='no_rencana_pembelian'>
                 <br/>
 
-                <div class="siderLabel">Tanggal</div>
+                <div class="siderLabelDark">Tanggal</div>
                 <input class="formcell" dojoType="lib.CustomDatebox" tabindex="-1" style="width:90%;"
                        name='tgl_rencana_pembelian'></div>
             </td>
@@ -31,7 +31,8 @@
                        lookupUrl="/inventory/supplier/"
                        lookupParam="{c:'lookupsupplier'}"
                        detailer="supplierDetail"
-                       detailFilter="nama,alamat"
+                       detailerLabelClass='siderLabelDark'
+                       detailFilter="alamat,area+telp"
                        idField="id"
                        idName="supplier_id"
                        name='supplier_nama'>

@@ -1,7 +1,8 @@
 define(['dojo',
     'dojo/parser',
     'dijit/registry',
-], function (dojo, parser, dijit) {
+    'dojo/number'
+], function (dojo, parser, dijit, nomor) {
 
     var singleton = {
         init:function () {
@@ -18,10 +19,10 @@ define(['dojo',
 
         },
         to2Dec:function (dec) {
-            return dojo.number.format(dec, {pattern:'#,###.##'});
+            return nomor.format(dec, {pattern:'#,###.##'});
         },
         to4Dec:function (dec) {
-            return dojo.number.format(dec, {pattern:'#,###.####'});
+            return nomor.format(dec, {pattern:'#,###.####'});
         },
         toDate:function (date) {
             return dojo.date.locale.format(new Date(date), {selector:"date", datePattern:'dd-MMM-yyyy' });
@@ -199,6 +200,58 @@ define(['dojo',
             // Insert '-'s
             s[8] = s[13] = s[18] = s[23] = '-';
             return s.join('');
+        },
+        jorder:function (json, filter) {
+            var newJson = {};
+            if (filter && filter.length) {
+                for (var i = 0; i < filter.length; i++) {
+                    flt = filter[i];
+                    if (flt.indexOf('+') != -1) {
+                        fls = flt.split('+');
+                        var kunciKomposit = '';
+                        var nilaiKomposit = '';
+                        for (j = 0; j < fls.length; j++) {
+                            var idxAt = fls[j].indexOf('@');
+                            var kunci = fls[j];
+                            var kunciBener = ''
+                            if (idxAt != -1) {
+                                kunciBener = kunci.substr(0, idxAt);
+                                var tipe = kunci.substr(idxAt + 1, kunci.length);
+                                if ('decimal' == tipe)
+                                    nilaiKomposit += this.to2Dec(json[kunciBener]) + ' ,';
+                                else if ('date' == tipe)
+                                    nilaiKomposit += this.toDate(json[kunciBener]) + ' ,';
+                            } else {
+                                kunciBener = kunci;
+                                nilaiKomposit += json[kunciBener] + ' ,';
+                            }
+                            kunciKomposit += kunciBener + ' ,';
+
+                        }
+                        newJson[kunciKomposit.substr(0, kunciKomposit.length - 1)] = nilaiKomposit.substr(0, nilaiKomposit.length - 1)
+                    } else {
+                        var idxAt = flt.indexOf('@');
+                        var kunci = flt;
+                        var kunciBener = ''
+                        var kunciKomposit = '';
+                        var nilaiKomposit = '';
+                        if (idxAt != -1) {
+                            kunciBener = kunci.substr(0, idxAt);
+                            var tipe = kunci.substr(idxAt + 1, kunci.length);
+                            if ('decimal' == tipe)
+                                nilaiKomposit += this.to2Dec(json[kunciBener])
+                            else if ('date' == tipe)
+                                nilaiKomposit += this.toDate(json[kunciBener])
+                        } else {
+                            kunciBener = kunci;
+                            nilaiKomposit += json[kunciBener]
+                        }
+                        kunciKomposit += kunciBener
+                        newJson[kunciKomposit] = nilaiKomposit;
+                    }
+                }
+            }
+            return newJson;
         },
         jPrefix:function (json, prefix, filter, exclude, replace) {
             var jresult = {};

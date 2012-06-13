@@ -122,6 +122,7 @@ define(['dojo',
                 { menu:'Ledger Finished', menuId:'mn007', eventId:'onMenuLedgerBarang', modul:'mod/ivt/BarangMgt', arg:[
                     {layer:true}
                 ]},
+                { menu:'Pemasukan Barang Bulanan', menuId:'mn007', eventId:'onMenuLedgerBarang', modul:'mod/ivt/BarangMgt'},
                 { menu:'Saldo Barang', menuId:'mn007', eventId:'onMenuSaldoBarang', modul:'mod/ivt/BarangMgt'}
             ];
             var menuStore = new dojo.store.Memory({data:[]});

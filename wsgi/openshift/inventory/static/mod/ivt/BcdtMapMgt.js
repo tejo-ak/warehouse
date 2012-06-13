@@ -43,8 +43,6 @@ define(['dojo',
                                     barang_id:dojote.dijitByName('barang_nama').getValueId()
                                 };
                                 dojote.callXhrJsonPost('/inventory/bcdt/', par, dojo.hitch(this, function (e) {
-                                    console.log('observe map result');
-                                    console.log(e);
                                     this.showMapping(this.formBcdtMap.hdrId)
 
                                 }))
@@ -145,8 +143,6 @@ define(['dojo',
                             //Inisiasi form bcdtMap disini
                             //
                             this.formBcdtMap.set('content', res.html);
-                            console.log('observer arg')
-                            console.log(arg)
                             this.initForm(arg);
                         }
 
@@ -182,7 +178,6 @@ define(['dojo',
 //set list to grid
             var dfr = dojote.callXhrJsonPost('/inventory/bcdt/', {c:'getmapping', id:id}, dojo.hitch(this, function (e) {
                 if (e.items) {
-                    console.log(e.items)
                     var itemStore = new dojo.store.Memory({data:e.items});
                     var itemObject = new dojo.data.ObjectStore({objectStore:itemStore});
                     if (this.gdItem) {
@@ -227,7 +222,6 @@ define(['dojo',
 
                         if (items[0].barang_id) {
                             dojote.dijitByName('barang_nama').setValueId(items[0].barang_id);
-                            console.log('publishing event message')
                             dojo.publish('onRequestSaldoBarangSider', [
                                 {id:items[0].barang_id}
                             ])
@@ -243,7 +237,7 @@ define(['dojo',
                 }))
         },
         prepareBrgDetailer:function () {
-            this.mapHeaderDetailer = new lib.DetailView({}, 'docDetail');
+            this.mapHeaderDetailer = new lib.DetailView({labelClass:'siderLabelDark'}, 'docDetail');
         },
         prepareDocDetailer:function () {
             this.docBarangDetailer = new lib.DetailView({}, 'detailBarangDokumen');

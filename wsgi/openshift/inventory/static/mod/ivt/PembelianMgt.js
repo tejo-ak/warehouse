@@ -80,9 +80,7 @@ define(['dojo',
             //
             var gd = dijit.byId('dgItemPembelian');
             this.gdItemPembelian = gd;
-            console.log('observe layout,... begining')
             if (dojote.cekWidget(gd)) {
-                console.log('observe layout,...')
                 gd.layout.cells[0].formatter = dojo.hitch(this, function (v, i) {
                     var dv = '<div style="font: 11px verdana;font-weight: bold;text-decoration: underline">' + v + '</div> ';
                     var dv = dv + '<div style="font:10px verdana">Merk:' +

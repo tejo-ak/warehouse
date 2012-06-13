@@ -47,8 +47,6 @@ define(['dojo',
                         this.formBrowseKonversi.status = arg.status
                         this.manageCrudButton();
                         this.formBrowseKonversi.openArg = arg;
-                        console.log('observer arg')
-                        console.log(arg)
                     }
                 }))
                 this.formBrowseKonversi.openArg = arg;

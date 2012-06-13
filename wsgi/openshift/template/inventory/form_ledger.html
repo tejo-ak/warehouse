@@ -10,20 +10,21 @@
 
     <tr valign="top">
         <td style="padding-left: 0px;background-color: #efefef" valign="top" width="50%">
-            <div class="siderLabel">Barang</div>
+            <div class="siderLabelDark">Barang</div>
             <input dojoType="lib.LookupTextbox" style="width:90%;"
                    lookupUrl="/inventory/barang/"
                    lookupParam="{c:'lookupbarang'}"
                    detailer="barangDetail"
                    idField="id"
                    idName="barang_id"
+                   detailerLabelClass='siderLabelDark'
                    detailFilter="nama,merk,satuan,harga,kode"
                    name='barang_nama'></div>
             <input type='hidden' dojoType='dijit.form.TextBox' name='barang_id'>
             <input type='hidden' dojoType='dijit.form.TextBox' name='inventory_id'>
             <br/><br/>
 
-            <div class="siderLabel">Tanggal dalam Periode</div>
+            <div class="siderLabelDark">Tanggal dalam Periode</div>
             <input dojoType='lib.CustomDatebox' style="width:90%;" name='tanggal'>
             <button name="btnShowLedger" dojoType="lib.CustomButton">Tampilkan</button>
         </td>

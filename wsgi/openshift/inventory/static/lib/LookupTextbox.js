@@ -30,6 +30,10 @@ require([
                 this.openLookup()
             }))
         },
+        detailerLabelClass:'siderLabel',
+        _setDetailerLabelClass:function (detailerLabelClass) {
+            this._setDetailerLabelClass(detailerLabelClass);
+        },
         idName:'',
         _setIdNameAttr:function (idName) {
             this._set('idName', idName);
@@ -67,7 +71,7 @@ require([
 //                    dvdt.id = dojote.getUuid().substring(0, 6);
 //                    dojo.style(dvdt, 'width', '100%');
 //                    divDetailer.appendChild(dvdt)
-                    var dv = new lib.DetailView({}, this.detailer);
+                    var dv = new lib.DetailView({labelClass:this.detailerLabelClass}, this.detailer);
                     this.detailerObj = dv;
                     return this.detailerObj;
                 }
@@ -250,7 +254,7 @@ require([
         },
         onShowDetail:function (data) {
             if (this.detailFilter) {
-                var data = dojote.jPrefix(data, "", this.detailFilter.split(","));
+                var data = dojote.jorder(data, this.detailFilter.split(","));
             }
             return data;
         },

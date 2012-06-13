@@ -78,11 +78,8 @@ define(['dojo',
                 saldo:grid.getItem(idx).saldo,
                 keterangan:grid.getItem(idx).keterangan
             };
-            console.log('observe grid apply edit');
-            console.log(par)
             dojote.callXhrJsonPost('/inventory/opname/', par, dojo.hitch(this, function (e) {
                 //do nothing on success
-                console.log(e);
                 dojote.dijitByName('id', this.formOpname.domNode).set('value', e.opname_id)
                 dojote.dijitByName('no_opname').set('value', e.opname_nomor)
                 dojote.dijitByName('tgl_opname').set('value', e.opname_tanggal)
@@ -169,7 +166,6 @@ define(['dojo',
         prepareDaftarOpname:function (id) {
             dojote.callXhrJsonPost('/inventory/opname/', {id:id, c:'getitemopname', a:20}, dojo.hitch(
                 this, function (jresp) {
-                    console.log(jresp)
                     if (this.gdItem) {
                         var imax = this.gdItem.rowCount;
                         var jmax = jresp.length;

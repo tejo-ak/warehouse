@@ -43,14 +43,10 @@ define(['dojo',
                     if (tabUtil.cekTab(this.formBrowseBcdtmap)) {
                         this.formBrowseBcdtmap.set('content', res);
                         this.prepareGridHasilBrowse()
-                        console.log('observer status');
-                        console.log(arg.status)
                         this.performBrowse(false, {par_status:arg.status})
                         this.formBrowseBcdtmap.status = arg.status
                         this.manageCrudButton();
                         this.formBrowseBcdtmap.openArg = arg;
-                        console.log('observer arg')
-                        console.log(arg)
                     }
                 }))
                 this.formBrowseBcdtmap.openArg = arg;

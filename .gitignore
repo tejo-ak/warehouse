@@ -1,4 +1,5 @@
 *.log
 *.pot
 *.pyc
+wsgi/openshift/inventory/static/dojolib/*
 local_settings.py

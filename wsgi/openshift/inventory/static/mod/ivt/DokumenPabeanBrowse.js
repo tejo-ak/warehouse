@@ -84,8 +84,6 @@ define(['dojo',
             var items = e.grid.selection.getSelected();
             var mode = (1 == items[0].status) ? "edit" : (2 == items[0].status) ? "view" : "";
             if (items.length && items[0].id) {
-                console.log('double click row')
-                console.log(items[0])
                 if ('edit-view'.indexOf(mode) != -1)
                     dojo.publish('onMenuPengeluaranPabean', [
                         {layer:true, id:items[0].id, mode:mode, jenisDokumen:items[0].jenisDokumen_id}
