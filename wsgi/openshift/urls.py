@@ -1,5 +1,10 @@
 import os
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls.defaults import *
+
+##########
+#django piston
+from piston.resource import Resource
+
 import  settings
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -9,6 +14,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     #url(r'^$', 'openshift.views.home', name='home'),
+    url(r'^api/', include('openshift.api.urls')),
+
 
     url(r'^inventory/$', 'inventory.views.index'),
     url(r'^inventory/inventories/$', 'inventory.inventoryMgt.dispatch'),

@@ -2,4 +2,5 @@
 *.pot
 *.pyc
 wsgi/openshift/inventory/static/dojolib/*
+wsgi/openshift/.idea/*
 local_settings.py
