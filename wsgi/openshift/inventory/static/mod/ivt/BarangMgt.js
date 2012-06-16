@@ -22,6 +22,7 @@ define(['dojo',
     var singleton = {
         init:function () {
             this.startup();
+            return this;
         },
         startup:function () {
             dojo.subscribe('onMenuDaftarBarang', dojo.hitch(this, 'prepareFormBarang'));
@@ -353,6 +354,6 @@ define(['dojo',
             this.lookupForm.set('content', lovBarang);
         }
     }
-    singleton.init();
-    return singleton;
+    //singleton.init();
+    return singleton.init();
 })
