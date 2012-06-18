@@ -17,6 +17,7 @@ define(['dojo',
     'lib/LookupParam',
     'lib/CustomGrid',
     'lib/Greditor',
+    'lib/Grediform',
     'lib/CustomButton'
 ], function (dojo, parser, dijit, tabUtil, accordUtil, dojote) {
         var singleton = {
