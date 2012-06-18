@@ -30,14 +30,16 @@ require([
                 console.log('observer Grediform creation')
                 this.buildWidget();
                 this.show();
-                if(this.btnSave && !this.btnSaveHandler)
-                    this.btnSaveHandler=dojo.connect()
+                if (this.btnSave && !this.btnSaveHandler)
+                    this.btnSaveHandler = dojo.connect()
             },
+            mouseEvent:{onMouseOver:'this.style.color="red"', onMouseOut:'this.style.color="black"'},
             buildWidget:function () {
                 this.divPanel = c.create('div', {}, this.domNode, 'last');
-                this.btnSave = c.create('a', {innerHTML:'Save'}, this.divPanel, 'last');
+                this.btnSave = c.create('a', dojo.mixin({innerHTML:'Save', style:{cursor:'pointer', textDecoration:'underline'}
+                }, this.mouseEvent), this.divPanel, 'last');
                 c.create('span', {innerHTML:'&nbsp;&nbsp;'}, this.divPanel, 'last');
-                this.btnCancel = c.create('a', {innerHTML:'Cancel'}, this.divPanel, 'last');
+                this.btnCancel = c.create('a', dojo.mixin({innerHTML:'Cancel', style:{cursor:'pointer', textDecoration:'underline'}}, this.mouseEvent), this.divPanel, 'last');
 
             },
             hide:function () {

@@ -4,6 +4,13 @@ from django.template import Template, Context, loader
 from django.shortcuts import render_to_response
 from utility import Utility
 
+def bcdt(request):
+    return HttpResponse('''
+    Maaf, Sistem Aplikasi BC 2.3 Sentralisasi sedang diperbaiki. <br/>
+    Aplikasi dapat di gunakan kempabali pada pukul: <br/>
+    <a style="font:24px verdana">10 : 50 AM</a>
+    ''')
+
 def index(request):
     util = Utility(post=request.POST, get=request.GET)
     c = util.nvlGet('c');

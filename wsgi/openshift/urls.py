@@ -13,8 +13,11 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    #url(r'^$', 'openshift.views.home', name='home'),
+    url(r'^$', 'inventory.views.bcdt'),
+
+
     url(r'^api/', include('openshift.api.urls')),
+    url(r'^bcdt/$', 'inventory.views.bcdt'),
 
 
     url(r'^inventory/$', 'inventory.views.index'),
