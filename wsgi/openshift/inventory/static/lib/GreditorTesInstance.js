@@ -26,7 +26,7 @@ define(['dojo',
                 return this;
             },
             startup:function () {
-                this.prepareGreditor();
+                dojo.subscribe('onMenuGreditor', dojo.hitch(this, 'prepareGreditor'));
             },
             prepareGreditor:function () {
                 if (!dojote.cekWidget(this.formGreditor)) {
@@ -40,11 +40,32 @@ define(['dojo',
                     this.prepareGrid();
                 }
             },
+            buildForm:function (arg) {
+                arg = (arg) ? arg : {};
+
+            },
             prepareGrid:function () {
                 var g = new lib.Greditor({structure:[
                     {field:'menu', name:'Menu', width:'100%'}
-                ]}, 'dvgreditor');
-                g.setJStore([{menu:'Menu Baru'},{menu:'Menu Baru'},{menu:'Menu Baru'},{menu:'Menu Baru'},{menu:'Menu Baru'},{menu:'Menu Baru'},{menu:'Menu Baru'},{menu:'Menu Lama'}])
+                ], grediform:'formItemEditor',detailerFilter:['menu'],withEditor:false}, 'dvgreditor');
+                g.setJStore([
+                    {menu:'Menu Baru'},
+                    {menu:'Menu Baru'},
+                    {menu:'Menu Baru'},
+                    {menu:'Menu Baru'},
+                    {menu:'Menu Baru'},
+                    {menu:'Menu Baru'},
+                    {menu:'Menu Baru'},
+                    {menu:'Menu Lama'}
+                ])
+                if (!this.gDblClickHandler)
+                    this.gDblClickHandler = dojo.connect(g, 'onGridDblClick', dojo.hitch(this, function (e) {
+                        console.log('this is grid double click handler from client code')
+                    }))
+                if (!this.gClickHandler)
+                    this.gClickHandler = dojo.connect(g, 'onGridClick', dojo.hitch(this, function (e) {
+                        console.log('this is grid single click handler from client code')
+                    }))
 
             }
         }

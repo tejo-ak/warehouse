@@ -11,7 +11,7 @@ require([
     "dojo/ready",
     "dijit/_WidgetBase" ,
     "dojo/dom-construct",
-    "dijit/_Templated" ,
+    "dijit/_TemplatedMixin" ,
     "lib/dojote",
     "dijit/form/Button" ,
     "dojox/grid/DataGrid",
