@@ -35,12 +35,12 @@ require([
                 "class='btnHapus'>-1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
                 "<a style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
                 "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
-                "class='btnPrev'>&lt;|</a>&nbsp;&nbsp;" +
+                "class='btnPrev soriaprev'><img width='15px'  height='15px' src='../../site_media/img/spacer_crud.gif' alt='previous page'/></a>&nbsp;&nbsp;" +
                 "<input  style='width:30px' value='1' name='currentpage'>" +
                 "<span class='pagelabel'>of 0 pages &nbsp;&nbsp;</span> " +
                 "<a style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
                 "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
-                "class='btnNext'>|&gt;</a>&nbsp;&nbsp;" +
+                "class='btnNext sorianext'><img width='15px'  height='15px' src='../../site_media/img/spacer_crud.gif' alt='next page'/></a>&nbsp;&nbsp;" +
                 "</div>" +
                 "<div class='gridPan'></div>" +
                 "</div>",
@@ -73,7 +73,7 @@ require([
                 if (dojote.cekWidget(this.grid) && !this.onGridDblClickHandler)
                     this.onGridDblClickHandler = dojo.connect(this.grid, 'onRowDblClick', dojo.hitch(this, this.onGridDblClickManager));
                 this.switchPaging(this.withPaging);
-                this._setWithEditorAttr(this.withEditor);
+                this.switchEditor(this.withEditor);
             },
             onGridDblClickManager:function (e) {
                 clearTimeout(this.clickTimer);
@@ -181,7 +181,9 @@ require([
             withEditor:true,
             _setWithEditorAttr:function (withEditor) {
                 this._set('withEditor', withEditor);
-                console.log('when to set?')
+
+            },
+            switchEditor:function (withEditor) {
                 if (this.btnAdd)
                     dojo.style(this.btnAdd, 'display', (withEditor) ? 'inline' : 'none');
                 if (this.btnDel)
@@ -189,7 +191,7 @@ require([
             },
             withPaging:true,
             _setWithPagingAttr:function (withPaging) {
-                this._set('withEditor', withPaging);
+                this._set('withPaging', withPaging);
 
             }, switchPaging:function (withPaging) {
                 console.log(this.btnPrev)

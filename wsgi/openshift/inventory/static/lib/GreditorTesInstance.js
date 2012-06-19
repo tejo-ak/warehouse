@@ -47,7 +47,7 @@ define(['dojo',
             prepareGrid:function () {
                 var g = new lib.Greditor({structure:[
                     {field:'menu', name:'Menu', width:'100%'}
-                ], grediform:'formItemEditor',detailerFilter:['menu'],withEditor:false}, 'dvgreditor');
+                ], grediform:'formItemEditor', detailerFilter:['menu'], withEditor:true }, 'dvgreditor');
                 g.setJStore([
                     {menu:'Menu Baru'},
                     {menu:'Menu Baru'},

@@ -157,3 +157,23 @@
     background-image: url('../../site_media/img/sprite_crud.gif');
     display: inline-block;
 }
+
+.sorianext {
+    width: 15px;
+    height: 15px;
+    background-position: -30px, 0px;
+    margin-top: 5px;
+    cursor: pointer;
+    background-image: url('../../site_media/dojolib/dijit/themes/soria/images/spriteRoundedIconsSmall.png');
+    display: inline-block;
+}
+
+.soriaprev {
+    width: 15px;
+    height: 15px;
+    background-position: 0px, 0px;
+    margin-top: 5px;
+    cursor: pointer;
+    background-image: url('../../site_media/dojolib/dijit/themes/soria/images/spriteRoundedIconsSmall.png');
+    display: inline-block;
+}
