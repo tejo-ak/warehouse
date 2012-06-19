@@ -15,6 +15,7 @@ require([
     "dojo/dom-construct",
     "dijit/_TemplatedMixin" ,
     "lib/dojote",
+    'lib/AccordUtil',
     "dijit/form/Button" ,
     "dijit/form/TextBox" ,
     "dojox/grid/DataGrid",
@@ -22,17 +23,25 @@ require([
     'dojo/data/ObjectStore',
     'dojo/store/Memory'
 
-], function (dojo, declare, parser, ready, _WidgetBase, c, _Templated, dojote) {
+], function (dojo, declare, parser, ready, _WidgetBase, c, _Templated, dojote, accordUtil) {
 
         declare("lib.Greditor", [_WidgetBase, _Templated, dijit._FocusMixin], {
+            widgetsInTemplate:true,
+            structure:[],
             templateString:"<div>" +
-                "<div class='greditorPanelContainer' style='border-top:1px solid #dedede; background-color: #efefef'>" +
+                "<div class='greditorPanelContainer' style='border-top:1px solid #dedede; background-color: #efefef;margin: 0px;padding: 0px'>" +
+                "<span style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
+                "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
+                "class='btnTbh'>add</span> " +
                 "<a style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
                 "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
-                "class='btnAdd'>+1</a>&nbsp;&nbsp;&nbsp;" +
-                "<a style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
+                "class='btnHapus'>del</a>&nbsp;" +
+                "<span style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
                 "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
-                "class='btnHapus'>-1</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                "class='btnSeek'>seek</span>&nbsp;" +
+                "<span style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
+                "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
+                "class='btnRefrez'>refresh</span>&nbsp;&nbsp;&nbsp;&nbsp;" +
                 "<a style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
                 "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
                 "class='btnPrev soriaprev'><img width='15px'  height='15px' src='../../site_media/img/spacer_crud.gif' alt='previous page'/></a>&nbsp;&nbsp;" +
@@ -44,8 +53,6 @@ require([
                 "</div>" +
                 "<div class='gridPan'></div>" +
                 "</div>",
-            widgetsInTemplate:true,
-            structure:[],
             postCreate:function () {
                 this.inherited('postCreate', arguments);
                 this.buildWidget();
@@ -53,8 +60,10 @@ require([
                         store:new dojo.data.ObjectStore({objectStore:new dojo.store.Memory({data:[]})})}
                     , this.dvGrid.id);
                 this.grid.startup();
-                this.btnAdd = dojo.query('.btnAdd', this.domNode)[0];
+                this.btnAdd = dojo.query('.btnTbh', this.domNode)[0];
                 this.btnDel = dojo.query('.btnHapus', this.domNode)[0];
+                this.btnLookup = dojo.query('.btnSeek', this.domNode)[0];
+                this.btnRefrez = dojo.query('.btnRefrez', this.domNode)[0];
                 this.btnPrev = dojo.query('.btnPrev', this.domNode)[0];
                 this.pagelabel = dojo.query('.pagelabel', this.domNode)[0];
                 this.btnNext = dojo.query('.btnNext', this.domNode)[0];
@@ -72,6 +81,8 @@ require([
                     this.onGridClickHandler = dojo.connect(this.grid, 'onRowClick', dojo.hitch(this, this.onGridClickManager));
                 if (dojote.cekWidget(this.grid) && !this.onGridDblClickHandler)
                     this.onGridDblClickHandler = dojo.connect(this.grid, 'onRowDblClick', dojo.hitch(this, this.onGridDblClickManager));
+                if (!this.btnSeekHandler)
+                    this.btnSeekHandler = dojo.connect(this.btnSeek, 'onclick', dojo.hitch(this, this.showLookup))
                 this.switchPaging(this.withPaging);
                 this.switchEditor(this.withEditor);
             },
@@ -144,6 +155,12 @@ require([
             onTekan:function (e) {
 
             },
+            onPaging:function (page, size) {
+
+            },
+            onQuery:function (jparam) {
+
+            },
             buildWidget:function () {
                 this.gridPanel = dojo.query('.greditorPanelContainer', this.domNode)[0];
                 this.gridPan = dojo.query('.gridPan', this.domNode)[0];
@@ -170,6 +187,13 @@ require([
                 }
                 return null;
             },
+            showLookup:function () {
+                var au = accordUtil.openLookup(this.param, dojo.hitch(this, function (params) {
+                    this.performPencarian(params);
+                    this.lookupParam = params;
+                }), this.filter);
+
+            },
             grediform:null,
             _setGrediformAttr:function (grediform) {
                 this._set('grediform', grediform);
@@ -181,24 +205,41 @@ require([
             withEditor:true,
             _setWithEditorAttr:function (withEditor) {
                 this._set('withEditor', withEditor);
+                this.switchEditor(withEditor);
+
+            },
+            url:true,
+            _setUrlAttr:function (url) {
+                this._set('url', url);
+
+            },
+            //param untuk di tampilkan dalam lookup param
+            param:[],
+            _setParamAttr:function (param) {
+                this._set('param', param);
 
             },
             switchEditor:function (withEditor) {
                 if (this.btnAdd)
-                    dojo.style(this.btnAdd, 'display', (withEditor) ? 'inline' : 'none');
+                    dojo.style(this.btnAdd, 'display', (withEditor) ? 'inline-block' : 'none');
                 if (this.btnDel)
-                    dojo.style(this.btnDel, 'display', (withEditor) ? 'inline' : 'none');
+                    dojo.style(this.btnDel, 'display', (withEditor) ? 'inline-block' : 'none');
+                if (this.btnLookup)
+                    dojo.style(this.btnLookup, 'display', (withEditor) ? 'inline-block' : 'none');
+                if (this.btnRefrez)
+                    dojo.style(this.btnRefrez, 'display', (withEditor) ? 'inline-block' : 'none');
             },
             withPaging:true,
             _setWithPagingAttr:function (withPaging) {
                 this._set('withPaging', withPaging);
+                this.switchPaging(withPaging);
 
             }, switchPaging:function (withPaging) {
                 console.log(this.btnPrev)
-                dojo.style(this.btnPrev, 'display', (withPaging) ? 'inline' : 'none');
-                dojo.style(this.btnNext, 'display', (withPaging) ? 'inline' : 'none');
-                dojo.style(this.pagelabel, 'display', (withPaging) ? 'inline' : 'none');
-                dojo.style(this.txtPage, 'display', (withPaging) ? 'inline' : 'none');
+                dojo.style(this.btnPrev, 'display', (withPaging) ? 'inline-block' : 'none');
+                dojo.style(this.btnNext, 'display', (withPaging) ? 'inline-block' : 'none');
+                dojo.style(this.pagelabel, 'display', (withPaging) ? 'inline-block' : 'none');
+                dojo.style(this.txtPage, 'display', (withPaging) ? 'inline-block' : 'none');
             }
         })
     }
