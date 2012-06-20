@@ -56,19 +56,19 @@ require([
             templateString:"<div>" +
                 "<div class='greditorPanelContainer' style='border-top:1px solid #dedede; background-color: #efefef;margin: 0px;padding: 0px'>" +
                 "<span style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
-                "class='btnTbh greditoradd'><img src='../../site_media/img/spacer_crud.gif' width='20px' height='20px' title='add' alt='tambah'></span> " +
+                "class='btnTbh greditoradd'><img class='centrimage' src='../../site_media/img/spacer_crud.gif' width='20px' height='20px' title='add' alt='tambah'></span> " +
                 "<a style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
-                "class='btnHapus greditordel'><img src='../../site_media/img/spacer_crud.gif' width='20px' height='20px'></a>&nbsp;" +
+                "class='btnHapus greditordel'><img class='centrimage'  src='../../site_media/img/spacer_crud.gif' width='20px' height='20px'></a>&nbsp;" +
                 "<span style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
-                "class='btnSeek greditorseek'><img src='../../site_media/img/spacer_crud.gif' width='20px' height='20px'></span>&nbsp;" +
+                "class='btnSeek greditorseek'><img class='centrimage'  src='../../site_media/img/spacer_crud.gif' width='20px' height='20px'></span>&nbsp;" +
                 "<span style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
-                "class='btnRefrez greditorrefresh'><img src='../../site_media/img/spacer_crud.gif' width='20px' height='20px'></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
+                "class='btnRefrez greditorrefresh'><img class='centrimage'  src='../../site_media/img/spacer_crud.gif' width='20px' height='20px'></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
                 "<a style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
-                "class='btnPrev greditorprev'><img src='../../site_media/img/spacer_crud.gif' width='20px' height='20px'></a>&nbsp;&nbsp;" +
-                "<input  style='width:30px' value='1' name='currentpage'>" +
-                "<span class='pagelabel'>of 0 pages &nbsp;&nbsp;</span> " +
+                "class='btnPrev greditorprev'><img class='centrimage'  src='../../site_media/img/spacer_crud.gif' width='20px' height='20px'></a>&nbsp;&nbsp;" +
+                "<input  style='width:30px;' class='centrimage' value='1' name='currentpage'>" +
+                "<span class='pagelabel'> of 0</span> " +
                 "<a style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
-                "class='btnNext greditornext'><img src='../../site_media/img/spacer_crud.gif' width='20px' height='20px'></a>&nbsp;&nbsp;" +
+                "class='btnNext greditornext'><img class='centrimage'  src='../../site_media/img/spacer_crud.gif' width='20px' height='20px'></a>&nbsp;&nbsp;" +
                 "</div>" +
                 "<div class='gridPan'></div>" +
                 "</div>",
@@ -101,7 +101,19 @@ require([
                 if (dojote.cekWidget(this.grid) && !this.onGridDblClickHandler)
                     this.onGridDblClickHandler = dojo.connect(this.grid, 'onRowDblClick', dojo.hitch(this, this.onGridDblClickManager));
                 if (!this.btnSeekHandler)
-                    this.btnSeekHandler = dojo.connect(this.btnSeek, 'onclick', dojo.hitch(this, this.showLookup))
+                    this.btnSeekHandler = dojo.connect(this.btnLookup, 'onclick', dojo.hitch(this, 'showLookup'))
+                if (!this.btnNextHandler)
+                    this.btnNextHandler = dojo.connect(this.btnNext, 'onclick', dojo.hitch(this, function () {
+                        this.gotoPage(this.currentPage++)
+                    }))
+                if (!this.btnPrevHandler)
+                    this.btnPrevHandler = dojo.connect(this.btnPrev, 'onclick', dojo.hitch(this, function () {
+                        this.gotoPage(this.currentPage--)
+                    }))
+                if (!this.btnRefrezHandler)
+                    this.btnRefrezHandler = dojo.connect(this.btnRefrez, 'onclick', dojo.hitch(this, function () {
+                        this.gotoPage(this.currentPage)
+                    }))
                 this.switchPaging(this.withPaging);
                 this.switchEditor(this.withEditor);
             },
@@ -199,6 +211,36 @@ require([
                 }
 
             },
+            queri:function (page) {
+                //unset url to prevent from http requesting
+                var needCount = (page) ? false : true;
+                var page = (page) ? page : 1;//null page means initial query to page one
+                var par = dojo.mixin(this.param, {page:1, size:this.size})
+                if (this.url)
+                    dojote.callXhrJsonPost(this.url, this.param, dojo.hitch(this, function (e) {
+                        if (e && e.data) {
+                            this.setJStore(e.data);
+                        }
+                    }))
+                if (needCount)
+                    this.count();
+            },
+            count:function () {
+                if (this.url)
+                    dojote.callXhrJsonPost(this.url, dojo.mixin(this.param, {count:true}), dojo.hitch(this, function (e) {
+                        if (e && e.count) {
+                            this.rowCount = e.count;
+                            this.pageCount = (this.rowCount - (this.rowCount % this.size) / this.size) + 1;
+                            this.pagelabel.innerHTML = ' of ' + this.pageCount;
+                            this.currentPage = 1
+                        }
+                    }))
+            },
+            gotoPage:function (page) {
+                if (page > 0 && page <= this.pageCount) {
+                    this.queri(page);
+                }
+            },
             getGrediform:function () {
                 var gdf = dijit.byId(this.grediform);
                 if (this.grediform && gdf) {
@@ -207,10 +249,10 @@ require([
                 return null;
             },
             showLookup:function () {
-                var au = accordUtil.openLookup(this.param, dojo.hitch(this, function (params) {
-                    this.performPencarian(params);
-                    this.lookupParam = params;
-                }), this.filter);
+                var au = accordUtil.openLookup(this.paramItems, dojo.hitch(this, function (param) {
+                    this.param = param
+                    this.queri();
+                }), this.param);
 
             },
             grediform:null,
@@ -227,16 +269,30 @@ require([
                 this.switchEditor(withEditor);
 
             },
-            url:true,
+            url:null,
             _setUrlAttr:function (url) {
                 this._set('url', url);
 
             },
+            //pagination size, default 20
+            size:20,
+            _setSizeAttr:function (size) {
+                this._set('size', size);
+
+            },
             //param untuk di tampilkan dalam lookup param
-            param:[],
+            paramItems:[],
+            _setParamItemsAttr:function (paramItems) {
+                this._set('paramItems', paramItems);
+
+            },
+            param:{},
             _setParamAttr:function (param) {
                 this._set('param', param);
 
+            },
+            mergeParam:function (param) {
+                this.param = dojo.mixin(this.param, param);
             },
             switchEditor:function (withEditor) {
                 if (this.btnAdd)
@@ -253,7 +309,8 @@ require([
                 this._set('withPaging', withPaging);
                 this.switchPaging(withPaging);
 
-            }, switchPaging:function (withPaging) {
+            },
+            switchPaging:function (withPaging) {
                 if (this.btnPrev) {
                     dojo.style(this.btnPrev, 'display', (withPaging) ? 'inline-block' : 'none');
                     dojo.style(this.btnNext, 'display', (withPaging) ? 'inline-block' : 'none');

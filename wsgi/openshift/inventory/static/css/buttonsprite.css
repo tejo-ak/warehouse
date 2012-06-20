@@ -325,3 +325,7 @@
     display: inline-block;
     text-indent: -9999px;
 }
+
+.centrimage {
+    vertical-align: middle;
+}

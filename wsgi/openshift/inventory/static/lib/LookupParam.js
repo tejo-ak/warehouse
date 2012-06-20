@@ -29,6 +29,12 @@ require([
                 {field:'tglLahir', name:'Tanggal Lahir', type:'tanggalRange'}
             ],
             initialParam:null,
+            _setInitialParamAttr:function (initialParam) {
+                this._set('initialParam', initialParam);
+                if (this.formLookup)
+                    this.formLookup.setFormValues(initialParam);
+
+            },
 //            structure:[ ],
             templateString:"<div><div class='lpContainer' dojoType='dojox.form.Manager' style='width:100%'></div></div>",
             widgetsInTemplate:true,
@@ -121,7 +127,11 @@ require([
                     this.btnGoLookup = dojo.query('[role="button"]', dojo.query(' .btnGoLookup', this.domNode)[0])[0];
                     dojo.connect(this.btnGoLookup, 'onclick', dojo.hitch(this, function () {
                         this.onLookup(this.formLookup.gatherFormValues());
-                    }))
+                    }));
+                    //premature assignment,. coz dom might not attached
+//                    if (this.initialParam)
+//                        this.formLookup.setFormValues(this.initialParam);
+
 
                 }
             },

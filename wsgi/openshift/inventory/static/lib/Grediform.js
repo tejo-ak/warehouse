@@ -26,7 +26,6 @@ require([
 
             postCreate:function () {
                 this.inherited('postCreate', arguments);
-                console.log('observer Grediform creation')
                 this.buildWidget();
                 if (this.develop)
                     this.show();
@@ -58,11 +57,11 @@ require([
                     this.domNode, 'first');
                 this.divPanel = c.create('div', {style:{backgroundColor:'#efefef', textAlign:'right'
                 }}, this.domNode, 'last');
-                this.btnSave = c.create('a', dojo.mixin({innerHTML:'<img src="../../site_media/img/spacer_crud.gif" width="20px" height="20px"',
+                this.btnSave = c.create('a', dojo.mixin({innerHTML:'<img class="centrimage" src="../../site_media/img/spacer_crud.gif" width="20px" height="20px"',
                     class:'greditorsave', style:{cursor:'pointer' }
                 }, this.mouseEvent), this.divPanel, 'last');
                 c.create('span', {innerHTML:'&nbsp;&nbsp;'}, this.divPanel, 'last');
-                this.btnCancel = c.create('a', dojo.mixin({innerHTML:'<img src="../../site_media/img/spacer_crud.gif" width="20px" height="20px"',
+                this.btnCancel = c.create('a', dojo.mixin({innerHTML:'<img class="centrimage"  src="../../site_media/img/spacer_crud.gif" width="20px" height="20px"',
                     class:'greditorcancel', style:{cursor:'pointer', textDecoration:'underline'}}, this.mouseEvent), this.divPanel, 'last');
             },
             hide:function () {

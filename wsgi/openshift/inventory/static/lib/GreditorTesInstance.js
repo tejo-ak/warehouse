@@ -47,7 +47,12 @@ define(['dojo',
             prepareGrid:function () {
                 var g = new lib.Greditor({structure:[
                     {field:'menu', name:'Menu', width:'100%'}
-                ], grediform:'formItemEditor', detailerFilter:['menu'], withEditor:true }, 'dvgreditor');
+                ], grediform:'formItemEditor', detailerFilter:['menu'], withEditor:true,
+                    paramItems:[
+                        {field:'nama', name:'Nama', type:'teks'},
+                        {field:'c', name:'c', type:'hidden'},
+                        {field:'id', name:'id', type:'hidden'}
+                    ] }, 'dvgreditor');
                 g.setJStore([
                     {menu:'Menu Baru'},
                     {menu:'Menu Baru'},
@@ -57,7 +62,8 @@ define(['dojo',
                     {menu:'Menu Baru'},
                     {menu:'Menu Baru'},
                     {menu:'Menu Lama'}
-                ])
+                ]);
+                g.mergeParam({id:23, c:'browsedpdokumen', nama:'Tejo'});
                 if (!this.gDblClickHandler)
                     this.gDblClickHandler = dojo.connect(g, 'onGridDblClick', dojo.hitch(this, function (e) {
                         console.log('this is grid double click handler from client code')

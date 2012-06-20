@@ -38,6 +38,7 @@ define(['dojo',
                 if (param.firstFocusObject) {
                     param.firstFocusObject.focus();
                 }
+                param.formLookup.setFormValues(initialParam)
                 this.param = param;
                 return param;
             } else {
