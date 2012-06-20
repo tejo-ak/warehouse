@@ -56,11 +56,14 @@ require([
                 this.titlePanel = c.create('div', {innerHTML:this.judul, class:'judul',
                         style:{font:"11px verdana", fontWeight:"bold", backgroundColor:'#efefef'}},
                     this.domNode, 'first');
-                this.divPanel = c.create('div', {style:{backgroundColor:'#efefef'}}, this.domNode, 'last');
-                this.btnSave = c.create('a', dojo.mixin({innerHTML:'save', style:{cursor:'pointer', textDecoration:'underline'}
+                this.divPanel = c.create('div', {style:{backgroundColor:'#efefef', textAlign:'right'
+                }}, this.domNode, 'last');
+                this.btnSave = c.create('a', dojo.mixin({innerHTML:'<img src="../../site_media/img/spacer_crud.gif" width="20px" height="20px"',
+                    class:'greditorsave', style:{cursor:'pointer' }
                 }, this.mouseEvent), this.divPanel, 'last');
                 c.create('span', {innerHTML:'&nbsp;&nbsp;'}, this.divPanel, 'last');
-                this.btnCancel = c.create('a', dojo.mixin({innerHTML:'close', style:{cursor:'pointer', textDecoration:'underline'}}, this.mouseEvent), this.divPanel, 'last');
+                this.btnCancel = c.create('a', dojo.mixin({innerHTML:'<img src="../../site_media/img/spacer_crud.gif" width="20px" height="20px"',
+                    class:'greditorcancel', style:{cursor:'pointer', textDecoration:'underline'}}, this.mouseEvent), this.divPanel, 'last');
             },
             hide:function () {
                 dojo.style(this.domNode, 'display', 'none');
@@ -105,11 +108,13 @@ require([
                 if (!this.repeat) {
                     this.onEscape();
                 }
-            }, onCancel:function () {
+            },
+            onCancel:function () {
                 this.reset();
                 this.hide();
 
-            }, onEscape:function () {
+            },
+            onEscape:function () {
                 this.onCancel();
 
             }

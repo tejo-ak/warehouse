@@ -28,28 +28,47 @@ require([
         declare("lib.Greditor", [_WidgetBase, _Templated, dijit._FocusMixin], {
             widgetsInTemplate:true,
             structure:[],
+//            templateString:"<div>" +
+//                "<div class='greditorPanelContainer' style='border-top:1px solid #dedede; background-color: #efefef;margin: 0px;padding: 0px'>" +
+//                "<span style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
+//                "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
+//                "class='btnTbh'>add</span> " +
+//                "<a style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
+//                "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
+//                "class='btnHapus'>del</a>&nbsp;" +
+//                "<span style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
+//                "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
+//                "class='btnSeek'>seek</span>&nbsp;" +
+//                "<span style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
+//                "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
+//                "class='btnRefrez'>refresh</span>&nbsp;&nbsp;&nbsp;&nbsp;" +
+//                "<a style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
+//                "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
+//                "class='btnPrev soriaprev'><img width='15px'  height='15px' src='../../site_media/img/spacer_crud.gif' alt='previous page'/></a>&nbsp;&nbsp;" +
+//                "<input  style='width:30px' value='1' name='currentpage'>" +
+//                "<span class='pagelabel'>of 0 pages &nbsp;&nbsp;</span> " +
+//                "<a style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
+//                "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
+//                "class='btnNext sorianext'><img width='15px'  height='15px' src='../../site_media/img/spacer_crud.gif' alt='next page'/></a>&nbsp;&nbsp;" +
+//                "</div>" +
+//                "<div class='gridPan'></div>" +
+//                "</div>",
             templateString:"<div>" +
                 "<div class='greditorPanelContainer' style='border-top:1px solid #dedede; background-color: #efefef;margin: 0px;padding: 0px'>" +
                 "<span style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
-                "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
-                "class='btnTbh'>add</span> " +
+                "class='btnTbh greditoradd'><img src='../../site_media/img/spacer_crud.gif' width='20px' height='20px' title='add' alt='tambah'></span> " +
                 "<a style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
-                "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
-                "class='btnHapus'>del</a>&nbsp;" +
+                "class='btnHapus greditordel'><img src='../../site_media/img/spacer_crud.gif' width='20px' height='20px'></a>&nbsp;" +
                 "<span style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
-                "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
-                "class='btnSeek'>seek</span>&nbsp;" +
+                "class='btnSeek greditorseek'><img src='../../site_media/img/spacer_crud.gif' width='20px' height='20px'></span>&nbsp;" +
                 "<span style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
-                "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
-                "class='btnRefrez'>refresh</span>&nbsp;&nbsp;&nbsp;&nbsp;" +
+                "class='btnRefrez greditorrefresh'><img src='../../site_media/img/spacer_crud.gif' width='20px' height='20px'></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
                 "<a style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
-                "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
-                "class='btnPrev soriaprev'><img width='15px'  height='15px' src='../../site_media/img/spacer_crud.gif' alt='previous page'/></a>&nbsp;&nbsp;" +
+                "class='btnPrev greditorprev'><img src='../../site_media/img/spacer_crud.gif' width='20px' height='20px'></a>&nbsp;&nbsp;" +
                 "<input  style='width:30px' value='1' name='currentpage'>" +
                 "<span class='pagelabel'>of 0 pages &nbsp;&nbsp;</span> " +
                 "<a style='text-decoration: underline;font-weight: bold;cursor:pointer' " +
-                "onMouseOut='this.style.color=\"black\"' onMouseOver='this.style.color=\"blue\"' " +
-                "class='btnNext sorianext'><img width='15px'  height='15px' src='../../site_media/img/spacer_crud.gif' alt='next page'/></a>&nbsp;&nbsp;" +
+                "class='btnNext greditornext'><img src='../../site_media/img/spacer_crud.gif' width='20px' height='20px'></a>&nbsp;&nbsp;" +
                 "</div>" +
                 "<div class='gridPan'></div>" +
                 "</div>",
@@ -235,11 +254,13 @@ require([
                 this.switchPaging(withPaging);
 
             }, switchPaging:function (withPaging) {
-                console.log(this.btnPrev)
-                dojo.style(this.btnPrev, 'display', (withPaging) ? 'inline-block' : 'none');
-                dojo.style(this.btnNext, 'display', (withPaging) ? 'inline-block' : 'none');
-                dojo.style(this.pagelabel, 'display', (withPaging) ? 'inline-block' : 'none');
-                dojo.style(this.txtPage, 'display', (withPaging) ? 'inline-block' : 'none');
+                if (this.btnPrev) {
+                    dojo.style(this.btnPrev, 'display', (withPaging) ? 'inline-block' : 'none');
+                    dojo.style(this.btnNext, 'display', (withPaging) ? 'inline-block' : 'none');
+                    dojo.style(this.pagelabel, 'display', (withPaging) ? 'inline-block' : 'none');
+                    dojo.style(this.txtPage, 'display', (withPaging) ? 'inline-block' : 'none');
+                }
+
             }
         })
     }

@@ -158,55 +158,170 @@
     display: inline-block;
 }
 
-.sorianext {
-    width: 15px;
-    height: 15px;
-    background-position: -30px 1px;
-    cursor: pointer;
-    margin-top: 5px;
-    background-image: url('../../site_media/dojolib/dijit/themes/soria/images/spriteRoundedIconsSmall.png');
-    display: inline-block;
-}
-
-.soriaprev {
-    width: 15px;
-    height: 15px;
-    background-position: 0px 1px;
-    cursor: pointer;
-    margin-top: 5px;
-    background-image: url('../../site_media/dojolib/dijit/themes/soria/images/spriteRoundedIconsSmall.png');
-    display: inline-block;
-}
-
-.roundedadd {
+.greditornext {
     width: 20px;
     height: 20px;
-    background-position: -156px -4px;
+    background-position: -24px -24px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/greditor.gif');
+    display: inline-block;
+}
+
+.greditornext:hover {
+    width: 20px;
+    height: 20px;
+    background-position: -24px -2px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/greditor.gif');
+    display: inline-block;
+}
+
+.greditorprev {
+    width: 20px;
+    height: 20px;
+    background-position: -2px -24px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/greditor.gif');
+    display: inline-block;
+}
+
+.greditorprev:hover {
+    width: 20px;
+    height: 20px;
+    background-position: -2px -2px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/greditor.gif');
+    display: inline-block;
+}
+
+.greditoradd {
+    width: 20px;
+    height: 20px;
+    background-position: -46px -24px;
     margin-top: 0px;
     cursor: pointer;
-    background-image: url('../../site_media/img/rounded.gif');
+    background-image: url('../../site_media/img/greditor.gif');
     display: block;
     text-indent: -9999px;
 }
 
-.roundedseek {
+.greditoradd:hover {
     width: 20px;
     height: 20px;
-    background-position: -233px -4px;
+    background-position: -46px -2px;
     margin-top: 0px;
     cursor: pointer;
-    background-image: url('../../site_media/img/rounded.gif');
+    background-image: url('../../site_media/img/greditor.gif');
     display: block;
     text-indent: -9999px;
 }
 
-.roundeddel {
+.greditorseek {
     width: 20px;
     height: 20px;
-    background-position: -27px -30px;
+    background-position: -90px -24px;
     margin-top: 0px;
     cursor: pointer;
-    background-image: url('../../site_media/img/rounded.gif');
+    background-image: url('../../site_media/img/greditor.gif');
     display: block;
+    text-indent: -9999px;
+}
+
+.greditorseek:hover {
+    width: 20px;
+    height: 20px;
+    background-position: -90px -2px;
+    margin-top: 0px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/greditor.gif');
+    display: block;
+    text-indent: -9999px;
+}
+
+.greditordel {
+    width: 20px;
+    height: 20px;
+    background-position: -68px -24px;
+    margin-top: 0px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/greditor.gif');
+    display: block;
+    text-indent: -9999px;
+}
+
+.greditordel:hover {
+    width: 20px;
+    height: 20px;
+    background-position: -68px -2px;
+    margin-top: 0px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/greditor.gif');
+    display: block;
+    text-indent: -9999px;
+}
+
+.greditorrefresh {
+    width: 20px;
+    height: 20px;
+    background-position: -112px -24px;
+    margin-top: 0px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/greditor.gif');
+    display: block;
+    text-indent: -9999px;
+}
+
+.greditorrefresh:hover {
+    width: 20px;
+    height: 20px;
+    background-position: -112px -2px;
+    margin-top: 0px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/greditor.gif');
+    display: block;
+    text-indent: -9999px;
+}
+
+.greditorsave {
+    width: 20px;
+    height: 20px;
+    background-position: -134px -24px;
+    margin-top: 0px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/greditor.gif');
+    display: inline-block;
+    text-indent: -9999px;
+}
+
+.greditorsave:hover {
+    width: 20px;
+    height: 20px;
+    background-position: -134px -2px;
+    margin-top: 0px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/greditor.gif');
+    display: inline-block;
+    text-indent: -9999px;
+}
+
+.greditorcancel {
+    width: 20px;
+    height: 20px;
+    background-position: -156px -24px;
+    margin-top: 0px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/greditor.gif');
+    display: inline-block;
+    text-indent: -9999px;
+}
+
+.greditorcancel:hover {
+    width: 20px;
+    height: 20px;
+    background-position: -156px -2px;
+    margin-top: 0px;
+    cursor: pointer;
+    background-image: url('../../site_media/img/greditor.gif');
+    display: inline-block;
     text-indent: -9999px;
 }
