@@ -9,16 +9,17 @@ require([
     "dojo",
     "dojo/parser",
     "dojo/_base/declare",
-    "dojo/dom-struct",
+    "dojo/dom-construct",
     "lib/dojote",
     "dijit/form/Select",
     "dojo/date/locale",
-    "dojo/_base/lang"
+    "dojo/_base/lang",
+    "dojo/store/Memory"
 ], function (dojo, parser, declare, c, dojote, Select, locale, lang) {
 
-    declare("lib.CustomButton", Button, {
+    declare("lib.CustomSelect", Select, {
 
-        url:null,
+        url:'/inventory/referensi/',
         _setUrlAttr:function (url) {
             this._set('url', url);
         },
@@ -34,26 +35,53 @@ require([
         _setFieldAttr:function (field) {
             this._set('field', field);
         },
+        grup:0,
+        _setGrupAttr:function (grup) {
+            this._set('grup', grup);
+        },
         postCreate:function () {
-            this.inherited(arguments);
-            c.create('option', {innerHTML:'...', value:''}, this.domNode)
+            this.inherited('postCreate', arguments);
+//            opt = c.create('option', {text:'...', value:''})
+//            this.domNode.add(opt);
+//
             if (this.url) {
-                this.mergeParam({field:this.field});
-//populate option here
+                this.mergeParam({field:this.field, grup:this.grup, c:'referensi'});
+                this.labelAttr = 'label';
+                this.options = [
+                    {value:'', label:'...'}
+                ];
                 dojote.callXhrJsonPost(this.url, this.param, dojo.hitch(this, function (e) {
-                    if (e && e.data && e.data.length && e.data[0][field]) {
+                    if (e && e.data && e.data.length && e.data[0][this.field]) {
                         var imax = e.data.length;
-                        for (i == 0; i < imax; i++) {
-                            c.create('option', {innerHTML:e.data[i][field], value:''}, this.domNode, 'last')
+                        var jdata = [];
+                        jdata[0] = {value:'', label:'...'};
+                        for (var i = 0; i < imax; i++) {
+                            jdata[i + 1] = {value:'' + e.data[i].id, label:e.data[i][this.field]};
                         }
-
+                        this.options = jdata;
+                        this.built = true;
+                        if (this.bufInitialValue) {
+                            console.log('re asign selected value')
+                            this.set('value', this.bufInitialValue);
+                        }
                     }
                 }))
+            } else {
+                //no need remote source
+                this.built = true;
             }
         },
-        _setValueAttr:function (e) {
+        _setValueAttr:function (value) {
+            console.log('observer on set value')
+            console.log(this.built)
+            if (this.built) {
+                this.inherited('_setValueAttr', arguments);
+            } else {
+                this.bufInitialValue = value;
+            }
 
         }
+
     });
 
 })

@@ -178,12 +178,12 @@ define(['dojo',
             return tuple
         },
         callXhrJsonPost:function (url, content, load, errorFlag) {
-            dojo.xhrPost({url:url, content:content, load:load, handleAs:'json', error:function (e, obj) {
+            dojo.xhrPost({url:url, content:content, load:load, handleAs:'json', error:dojo.hitch(this, function (e, obj) {
                     errorFlag = (errorFlag) ? errorFlag : 'Error';
                     var pesan = (obj && obj.xhr && obj.xhr.response) ? obj.xhr.response : e;
                     pesan = this.seekExceptionMessage(pesan);
                     alert(errorFlag + '\n00000' + pesan);
-                }
+                })
                 }
             )
         },

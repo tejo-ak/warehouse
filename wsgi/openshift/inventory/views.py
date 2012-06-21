@@ -11,6 +11,7 @@ def bcdt(request):
     <a style="font:24px verdana">10 : 50 AM</a>
     ''')
 
+
 def index(request):
     util = Utility(post=request.POST, get=request.GET)
     c = util.nvlGet('c');
@@ -27,6 +28,8 @@ def index(request):
             return HttpResponse(t.render(Context(d)))
         if 'home' == c:
             return render_to_response('inventory/web.html')
+        if 'pabean' == c:
+            return render_to_response('inventory/dokumen_css.html')
     else:
         #t = loader.get_template('portal_ivt.html')
         t = loader.get_template('portal_ivtamd.html')

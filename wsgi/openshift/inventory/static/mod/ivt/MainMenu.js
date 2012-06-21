@@ -41,6 +41,7 @@ define(['dojo',
         coreMenus:[
             { menu:'Home / Developed', menuId:'mn004', eventId:'', grup:true},
             { menu:'Welcome', menuId:'mn005', eventId:'onMenuHome', modul:'mod/ivt/StartApp'},
+            { menu:'Menu Pabean', menuId:'mn005', eventId:'onMenuPabean', modul:'mod/ivt/StartApp'},
             { menu:'Greditor', menuId:'mn005', eventId:'onMenuGreditor', modul:'lib/GreditorTesInstance'},
             { menu:'Barang MGT', menuId:'mn003', eventId:'', grup:true},
             { menu:'Register Barang', menuId:'mn001', eventId:'onMenuDaftarBarang',
