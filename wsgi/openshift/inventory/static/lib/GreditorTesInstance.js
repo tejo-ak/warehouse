@@ -48,6 +48,7 @@ define(['dojo',
                 var g = new lib.Greditor({structure:[
                     {field:'menu', name:'Menu', width:'100%'}
                 ], grediform:'formItemEditor', detailerFilter:['menu'], withEditor:true,
+                    saveParam:{c:'simpandokumen'},
                     paramItems:[
                         {field:'nama', name:'Nama', type:'teks'},
                         {field:'c', name:'c', type:'hidden'},
@@ -63,6 +64,17 @@ define(['dojo',
                     {menu:'Menu Baru'},
                     {menu:'Menu Lama'}
                 ]);
+                if (!this.greditorOnBeforeEditorSaveHandler)
+                    this.greditorOnBeforeEditorSaveHandler = dojo.connect(
+                        g, 'onBeforeEditorSave', dojo.hitch(this, function (e) {
+                            console.log('observer client before save');
+                            console.log(e.data);
+                            console.log(e.form);
+                            e.data['tambahanclient'] = 'ini dari client lhooo';
+                            g.mergeSaveParam({save:true});
+                            return e;
+                        })
+                    )
                 g.mergeParam({id:23, c:'browsedpdokumen', nama:'Tejo'});
                 if (!this.gDblClickHandler)
                     this.gDblClickHandler = dojo.connect(g, 'onGridDblClick', dojo.hitch(this, function (e) {

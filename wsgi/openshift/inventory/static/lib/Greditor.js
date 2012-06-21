@@ -95,7 +95,7 @@ require([
                 if (grediform && !this.onEditorEndHandler)
                     this.onEditorEnd = dojo.connect(grediform, 'onCancel', dojo.hitch(this, this.onEditorEnd));
                 if (grediform && !this.onEditorSaveHandler)
-                    this.onEditorEnd = dojo.connect(grediform, 'onSave', dojo.hitch(this, this.onEditorSave))
+                    this.onEditorEnd = dojo.connect(grediform, 'onSave', dojo.hitch(this, this.onEditorSave));
                 if (dojote.cekWidget(this.grid) && !this.onGridClickHandler)
                     this.onGridClickHandler = dojo.connect(this.grid, 'onRowClick', dojo.hitch(this, this.onGridClickManager));
                 if (dojote.cekWidget(this.grid) && !this.onGridDblClickHandler)
@@ -170,9 +170,32 @@ require([
             onEditorEnd:function () {
                 this.editing = false;
             },
-            onEditorSave:function (e) {
-                console.log('observer after editor save, suppose to refresh grid');
-                console.log(e)
+            onEditorSave:function (jvalue, form) {
+                var jval = this.onBeforeEditorSave({data:jvalue, form:form});
+                var svPar = dojo.mixin(jval.data, this.saveParam)
+                console.log('svPar')
+                console.log(svPar)
+                if (this.url)
+                    dojote.callXhrJsonPost(this.url, svPar, dojo.hitch(this, this.onAfterEditorSave));
+            },
+            onDel:function (e) {
+                var jval = this.onBeforeDel(e);
+                var delPar = dojo.mixin(e, this.delParam);
+                if (this.url)
+                    dojote.calXhrJsonPost(this.url, delPar, dojo.hitch(this, this.onAfterDel));
+            },
+            onBeforeDel:function (e) {
+                return e;
+            },
+            onAfterEditorSave:function (e) {
+                this.gotoPage(this.currentPage)
+                //refresh grid by default
+            },
+            onAfterDel:function (e) {
+                //refresh grid by default
+            },
+            onBeforeEditorSave:function (e) {
+                return e;
             },
             editing:false,
             onAdd:function () {
@@ -215,10 +238,11 @@ require([
                 //unset url to prevent from http requesting
                 var needCount = (page) ? false : true;
                 var page = (page) ? page : 1;//null page means initial query to page one
-                var par = dojo.mixin(this.param, {page:1, size:this.size})
+                this.queryId = dojote.getUuid()
+                var par = dojo.mixin(this.param, {page:1, size:this.size, queryId:this.queryId})
                 if (this.url)
                     dojote.callXhrJsonPost(this.url, this.param, dojo.hitch(this, function (e) {
-                        if (e && e.data) {
+                        if (e && e.data && this.queryId == e.queryId) {
                             this.setJStore(e.data);
                         }
                     }))
@@ -248,6 +272,7 @@ require([
                 }
                 return null;
             },
+
             showLookup:function () {
                 var au = accordUtil.openLookup(this.paramItems, dojo.hitch(this, function (param) {
                     this.param = param
@@ -291,8 +316,22 @@ require([
                 this._set('param', param);
 
             },
+            saveParam:{},
+            _setSaveParamAttr:function (saveParam) {
+                this._set('saveParam', saveParam);
+            },
+            delParam:{},
+            _setDelParamAttr:function (delParam) {
+                this._set('delParam', delParam);
+            },
             mergeParam:function (param) {
                 this.param = dojo.mixin(this.param, param);
+            },
+            mergeSaveParam:function (delParam) {
+                this.delParam = dojo.mixin(this.delParam, delParam);
+            },
+            mergeDelParam:function (saveParam) {
+                this.saveParam = dojo.mixin(this.saveParam, saveParam);
             },
             switchEditor:function (withEditor) {
                 if (this.btnAdd)
