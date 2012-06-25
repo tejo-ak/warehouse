@@ -277,6 +277,36 @@ div.name-dokumen-css-dokumen-css033 {
     height: 57px;
 }
 
+.rotator {
+    background-color: #fff;
+    border: solid 1px #e5e5e5;
+    width: 400px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.pane {
+    background-color: transparent;
+    width: 400px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.pane0 {
+    background-color: transparent;
+    color: white;
+}
+
+.pane1 {
+    background-color: transparent;
+    color: white;
+}
+
+.pane2 {
+    background-color: transparent;
+    color: white;
+}
+
 -->
 </style>
 <!-- End Save for Web Styles -->
@@ -285,8 +315,32 @@ div.name-dokumen-css-dokumen-css033 {
 <div style="margin: auto;padding:0px;background-color:#9a9a9a;width:100%;">
     <!-- Save for Web Slices (dokumen_css.psd) -->
     <div style="margin: auto" class="Table_01" align="center">
-        <div class="name-dokumen-css-dokumen-css">
-            <img src="../site_media/images/name_dokumen_css_dokumen_cs.png" width="600" height="191" alt="">
+        <div class="name-dokumen-css-dokumen-css"
+             style="background-image: url('../site_media/images/name_dokumen_css_dokumen_cs.png')">
+            <div style="background-color: #000000;opacity: 0.65">
+                <div style="width:100%;height:100%;background-color: transparent;" align="left" dojoType="dojox.widget.AutoRotator"
+                     class="rotator" id="myAutoRotator2"
+                     transition='dojox.widget.rotator.slideLeft'
+                     data-dojo-props="duration:2500">
+                    <div style="width:100%;" class="pane pane0">Dokumen Pabean<br/>Menu manajemen dokumen pabean</div>
+                    <div style="width:100%;" class="pane pane2" transition="transition:'dojox.widget.rotator.slideLeft">
+                        BC 3.0 - Dokumen Ekspor<br/>
+                        <ul>
+                            <li>Create Document</li>
+                            <li>Cetak Dokumen</li>
+                            <li>Browse Draft Dokumen</li>
+                        </ul>
+                    </div>
+                    <div style="width:100%;" class="pane pane1" transition="transition:'dojox.widget.rotator.slideLeft">
+                        BC 2.3 - Dokumen Impor dengan Fasilitas Penangguhan<br/>
+                        <ul>
+                            <li>Create Document</li>
+                            <li>Cetak Dokumen</li>
+                            <li>Browse Draft Dokumen</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="name-dokumen-css-dokumen-css002">
             <img src="../site_media/images/name_dokumen_css_dokumen-02.png" width="18" height="409" alt="">
@@ -387,5 +441,6 @@ div.name-dokumen-css-dokumen-css033 {
     </div>
     <!-- End Save for Web Slices -->
 </div>
+
 </body>
 </html>

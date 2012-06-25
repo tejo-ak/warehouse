@@ -9,7 +9,11 @@ define(['dojo',
     'dojo/parser',
     'lib/TabUtil',
     'lib/dojote',
-    'dijit/Tooltip'
+    'dijit/Tooltip',
+    'lib/dojote',
+    'lib/MyFade',
+    'dojox/widget/rotator/Slide',
+    'dojox/widget/AutoRotator'
 ], function (dojo, parser, tabUtil, dojote) {
 
     var singleton = {
