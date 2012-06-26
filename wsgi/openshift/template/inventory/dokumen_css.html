@@ -307,6 +307,30 @@ div.name-dokumen-css-dokumen-css033 {
     color: white;
 }
 
+.linkable {
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.linkable:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.paneTitle {
+    font-weight: bold;
+    font: 32px verdana;
+    text-align: right;
+}
+
+.paneSubTitle {
+    font-weight: lighter;
+    font: 10px verdana;
+    border-bottom: 1px solid #ababab;
+    text-align: right;
+}
+
 -->
 </style>
 <!-- End Save for Web Styles -->
@@ -318,25 +342,31 @@ div.name-dokumen-css-dokumen-css033 {
         <div class="name-dokumen-css-dokumen-css"
              style="background-image: url('../site_media/images/name_dokumen_css_dokumen_cs.png')">
             <div style="background-color: #000000;opacity: 0.65">
-                <div style="width:100%;height:100%;background-color: transparent;" align="left" dojoType="dojox.widget.AutoRotator"
+                <div style="width:100%;height:100%;background-color: transparent;" align="left"
+                     dojoType="dojox.widget.AutoRotator"
                      class="rotator" id="myAutoRotator2"
-                     transition='dojox.widget.rotator.slideLeft'
+                     transition='dojox.widget.rotator.slidIt'
                      data-dojo-props="duration:2500">
-                    <div style="width:100%;" class="pane pane0">Dokumen Pabean<br/>Menu manajemen dokumen pabean</div>
-                    <div style="width:100%;" class="pane pane2" transition="transition:'dojox.widget.rotator.slideLeft">
-                        BC 3.0 - Dokumen Ekspor<br/>
+                    <div style="width:100%;" class="pane pane0">
+                        <div class="paneTitle">Dokumen Pabean</div>
+                        <div class="paneSubTitle">Menu manajemen dokumen pabean</div>
+                    </div>
+                    <div style="width:100%;height:100%" class="pane pane2" transition="dojox.widget.rotator.slidIt">
+                        <div class="paneTitle">BC 3.0</div>
+                        <div class="paneSubTitle">Dokumen Pemberitahuan Ekspor Barang</div>
                         <ul>
-                            <li>Create Document</li>
-                            <li>Cetak Dokumen</li>
-                            <li>Browse Draft Dokumen</li>
+                            <li class="linkable">Create Document</li>
+                            <li class="linkable">Cetak Dokumen</li>
+                            <li class="linkable">Browse Draft Dokumen</li>
                         </ul>
                     </div>
-                    <div style="width:100%;" class="pane pane1" transition="transition:'dojox.widget.rotator.slideLeft">
-                        BC 2.3 - Dokumen Impor dengan Fasilitas Penangguhan<br/>
+                    <div style="width:100%;height:100%;" class="pane pane1" transition="dojox.widget.rotator.slidIt">
+                        <div class="paneTitle">BC 2.3</div>
+                        <div class="paneSubTitle">Dokumen Pemberitahuan Impor dengan Fasilitas Penangguhan</div>
                         <ul>
-                            <li>Create Document</li>
-                            <li>Cetak Dokumen</li>
-                            <li>Browse Draft Dokumen</li>
+                            <li class="linkable">Create Document</li>
+                            <li class="linkable">Cetak Dokumen</li>
+                            <li class="linkable">Browse Draft Dokumen</li>
                         </ul>
                     </div>
                 </div>
@@ -441,6 +471,5 @@ div.name-dokumen-css-dokumen-css033 {
     </div>
     <!-- End Save for Web Slices -->
 </div>
-
 </body>
 </html>

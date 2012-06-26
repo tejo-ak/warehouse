@@ -13,6 +13,7 @@ define(['dojo',
     'lib/dojote',
     'lib/MyFade',
     'dojox/widget/rotator/Slide',
+    'dojo/fx',
     'dojox/widget/AutoRotator'
 ], function (dojo, parser, tabUtil, dojote) {
 
@@ -93,8 +94,6 @@ define(['dojo',
             var tt30 = dojo.query('.BC30-dokumen-css', this.formPabean.domNode)[0];
             var tt27in = dojo.query('.BC27IN-dokumen-css', this.formPabean.domNode)[0];
             var tt27 = dojo.query('.BC27-dokumen-css', this.formPabean.domNode)[0];
-            console.log('tt30.id')
-            console.log(tt30.id)
             var tt = new dijit.Tooltip({connectId:tt30.id, label:'<span class="siderLabel">' +
                 'Export declaration<br/>' +
                 'Dokumen deklarasi pabean untuk ekspor barang<br/>' +
@@ -107,6 +106,11 @@ define(['dojo',
                 'Movement Control<br/>' +
                 'Dokumen pelindung perpindahan barang antar TPB<br/>' +
                 ' </span>'})
+            if (!this.formPabean.tt30Handler)
+                this.formPabean.tt30Handler = dojo.connect(tt30, 'onclick', dojo.hitch(this, function () {
+ //TO DO here
+
+                }))
         }
 
     };
