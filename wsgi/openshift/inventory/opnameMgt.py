@@ -84,7 +84,7 @@ def initOpname(reqData):
     _apu = appUtil()
     #prepare inventory
     pbl = models.Opname()
-    pbl.nomor = ('00000000000000%s' % (_apu.getIncrement(17)))[-6:]
+    pbl.nomor = ('00000000000000%s' % (_apu.getIncrement(6)))[-6:]
     pbl.inventory = getInvById(requtil.nvlGet('inventory_id'))
     pbl.save()
     return pbl

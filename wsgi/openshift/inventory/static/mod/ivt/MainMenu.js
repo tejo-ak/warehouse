@@ -44,7 +44,7 @@ define(['dojo',
             { menu:'Menu Pabean', menuId:'mn005', eventId:'onMenuPabean', modul:'mod/ivt/StartApp'},
             { menu:'Greditor', menuId:'mn005', eventId:'onMenuGreditor', modul:'lib/GreditorTesInstance'},
             { menu:'Barang MGT', menuId:'mn003', eventId:'', grup:true},
-            { menu:'Register Barang', menuId:'mn001', eventId:'onMenuDaftarBarang',
+            { menu:'Rekam Barang', menuId:'mn001', eventId:'onMenuDaftarBarang',
                 modul:'mod/ivt/BarangMgt', arg:[
                 {mode:'new', layer:false}
             ]},
@@ -55,17 +55,23 @@ define(['dojo',
                 {nocrud:false, sider:'sider', detail:'view'}
             ]},
             { menu:'Supplier MGT', menuId:'mn003', eventId:'', grup:true},
-            { menu:'Register Supplier', menuId:'mn001', eventId:'onMenuDaftarSupplier', modul:'mod/ivt/SupplierMgt', arg:[
+            { menu:'Rekam Supplier', menuId:'mn001', eventId:'onMenuDaftarSupplier', modul:'mod/ivt/SupplierMgt', arg:[
                 {mode:'new', sider:'sider', detail:'view'}
             ]},
             { menu:'Browse Supplier', menuId:'mn002', eventId:'onMenuPencarianSupplier', modul:'mod/ivt/SupplierMgt', arg:[
                 {nocrud:false}
             ]},
             { menu:'Customer MGT', menuId:'mn003', eventId:'', grup:true},
-            { menu:'Register Customer', menuId:'mn001', eventId:'onMenuDaftarCustomer', modul:'mod/ivt/CustomerMgt', arg:[
+            { menu:'Rekam Customer', menuId:'mn001', eventId:'onMenuDaftarCustomer', modul:'mod/ivt/CustomerMgt', arg:[
                 {mode:'new'}
             ]},
             { menu:'Browse Customer', menuId:'mn002', eventId:'onMenuPencarianCustomer', modul:'mod/ivt/CustomerMgt', arg:[
+                {nocrud:false}
+            ]},
+            { menu:'Rekam Partner', menuId:'mn001', eventId:'onMenuPartner', modul:'mod/ivt/PartnerMgt', arg:[
+                {mode:'new'}
+            ]},
+            { menu:'Browse Partner', menuId:'mn002', eventId:'onMenuPartnerBrowse', modul:'mod/ivt/PartnerBrowse', arg:[
                 {nocrud:false}
             ]},
             { menu:'Inward WareHouse', menuId:'mn006', eventId:'', grup:true},

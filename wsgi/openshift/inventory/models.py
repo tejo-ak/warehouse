@@ -37,7 +37,7 @@ class User(models.Model):
 
 class Referensi(models.Model):
     grup = models.IntegerField()
-    kode = models.CharField(max_length=4, null=True, blank=True)
+    kode = models.CharField(max_length=5, null=True, blank=True)
     nama = models.CharField(max_length=32, null=True, blank=True)
     keterangan = models.CharField(max_length=512, null=True, blank=True)
     nilai = models.CharField(max_length=64, null=True, blank=True)

@@ -7,7 +7,7 @@ import settings
 
 class appUtil():
     def getIncrement(self, typeid):
-        sql = 'select id,nama,num from %sreferensi where id=%s for update' % (settings.INVENTORY_PREFIX, typeid)
+        sql = "select id,nama,num from %sreferensi where grup=4 and kode='%s' for update" % (settings.INVENTORY_PREFIX, typeid)
         print 'sql = ' + sql
         numint = 0
         with transaction.commit_on_success():

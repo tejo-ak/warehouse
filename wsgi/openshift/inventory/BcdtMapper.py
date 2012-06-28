@@ -52,7 +52,7 @@ class BcdtMapper:
         hdr = models.BcdtMap()
         util = Utility(reqData=self.jhdr)
         hdr = util.bindRequestModel(hdr);
-        hdr.nomor = ('00000000000000%s' % (_apu.getIncrement(14)))[-6:]
+        hdr.nomor = ('00000000000000%s' % (_apu.getIncrement(3)))[-6:]
         hdr.save()
 
         for jbrg in self.jbrgs:

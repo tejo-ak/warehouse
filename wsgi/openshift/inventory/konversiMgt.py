@@ -72,7 +72,7 @@ def initKonversi(reqData):
     _apu = appUtil()
     #prepare inventory
     pbl = models.Konversi()
-    pbl.nomor = ('00000000000000%s' % (_apu.getIncrement(16)))[-6:]
+    pbl.nomor = ('00000000000000%s' % (_apu.getIncrement(5)))[-6:]
     pbl.inventory = getInvById(requtil.nvlGet('inventory_id'))
     pbl.save()
     return pbl

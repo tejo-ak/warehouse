@@ -36,10 +36,10 @@ def dispatch(request):
                 jitempembelians.append(jitem)
             return HttpResponse(json.dumps(jitempembelians))
         if 'gethdrpembelian' == c:
-            pbls = models.Pembelian.objects.filter(id__exact=util.nvlGet('id',0))
+            pbls = models.Pembelian.objects.filter(id__exact=util.nvlGet('id', 0))
             for pbl in pbls:
-                jpbl = util.modelToDicts([pbl.supplier,pbl],prefiks=['supplier',''])
-                return HttpResponse(json.dumps({'data':jpbl}))
+                jpbl = util.modelToDicts([pbl.supplier, pbl], prefiks=['supplier', ''])
+                return HttpResponse(json.dumps({'data': jpbl}))
         if 'gettotalitempembelian' == c:
             y = 'nanti di garap'
         if 'formbrowsepembelian' == c:
@@ -74,7 +74,7 @@ def initPembelian(reqData):
     else: raise StandardError('Supplier ini tidak ditemukan')
     pbl = models.Pembelian()
     pbl.supplier = sup
-    pbl.nomor = ('00000000000000%s' % (_apu.getIncrement(9)))[-6:]
+    pbl.nomor = ('00000000000000%s' % (_apu.getIncrement(1)))[-6:]
     pbl.save()
     return pbl
 

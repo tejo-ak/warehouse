@@ -62,7 +62,7 @@ def initPenjualan(reqData):
     else: raise StandardError('Customer ini tidak ditemukan')
     pbl = models.Penjualan()
     pbl.customer = sup
-    pbl.nomor = ('00000000000000%s' % (_apu.getIncrement(13)))[-6:]
+    pbl.nomor = ('00000000000000%s' % (_apu.getIncrement(2)))[-6:]
     pbl.save()
     return pbl
 

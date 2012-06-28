@@ -26,6 +26,7 @@ define(['dojo',
             this.prepareHome();
             dojo.subscribe('onMenuHome', dojo.hitch(this, 'prepareHome'));
             dojo.subscribe('onMenuPabean', dojo.hitch(this, 'preparePabean'));
+            this.buildLogo();
         },
 
         prepareHome:function (arg) {
@@ -40,6 +41,40 @@ define(['dojo',
 
             } else {
                 tabUtil.closeAfterTab(this.formHome)
+            }
+        },
+
+        buildLogo:function () {
+            var s = 'header_application';
+            var dvLogo = dojo.query('.' + s)[0];
+            var dives = dojo.query('div', dvLogo);
+            for (var i = 0; i < dives.length; i++) {
+                var cn = dives[i].className;
+                if (cn.indexOf('HDR-') != -1) {
+                    var dv = dives[i]
+                    dv.id = dojote.getUuid().substr(0, 6);
+                    dojo.style(dv, 'cursor', 'pointer');
+                    var img = dojo.query('img', dv)[0];
+                    if (!this['omov' + dv.className])
+                        this['omov' + dv.className] = dojo.connect(dv, 'onmouseover', dojo.hitch(this, function (e, dv) {
+                            var img = e;
+                            var imgsrc = img.src;
+                            if (imgsrc.indexOf('/img_hdr/') != -1) {
+                                var newimgsrc = imgsrc.replace('/img_hdr/', '/img_hdr_light/');
+                                img.src = newimgsrc;
+                            }
+                        }, img))
+                    if (!this['omou' + dv.className])
+                        this['omov' + dv.className] = dojo.connect(dv, 'onmouseout', dojo.hitch(this, function (e, dv) {
+                            var img = e;
+                            var imgsrc = img.src;
+                            if (imgsrc.indexOf('/img_hdr_light/') != -1) {
+                                var newimgsrc = imgsrc.replace('/img_hdr_light/', '/img_hdr/');
+                                img.src = newimgsrc;
+                            }
+                        }, img))
+
+                }
             }
         },
 
@@ -108,7 +143,7 @@ define(['dojo',
                 ' </span>'})
             if (!this.formPabean.tt30Handler)
                 this.formPabean.tt30Handler = dojo.connect(tt30, 'onclick', dojo.hitch(this, function () {
- //TO DO here
+                    //TO DO here
 
                 }))
         }

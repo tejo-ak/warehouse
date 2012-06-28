@@ -26,32 +26,270 @@ delete from inventory_perusahaan;
 delete from inventory_customer;
 delete from inventory_referensi;
 
-INSERT INTO `inventory_referensi` (`id`, `nama`, `grup`, `keterangan`, `nilai`, `num`) VALUES
-	(1, 'Grup', 0, 'Grup Untuk \r\n\r\nGrup', 1, 0),
-	(2, 'JENIS INVENTORY', 0, 'Grup Untuk \r\n\r\nJenis Inventory', 2, 0),
-	(3, 'FISIK', 2, 'Jenis \r\n\r\nInventory Fisik', NULL, 0),
-	(4, 'VIRTUAL', 2, 'Jenis \r\n\r\nInventory \r\n\r\nVirtual', NULL, 0),
-	(5, 'METODE INVENTORY', 0, 'Metode \r\n\r\ninventory yang \r\n\r\ndigunakan', 3, 0),
-	(6, 'FIFO', 3, 'First In \r\n\r\nFirst Out', NULL, 0),
-	(7, 'LIFO', 3, 'Last In \r\n\r\nFirst Out', NULL, 0),
-	(8, 'JENIS INCREMENT', 0, 'GRUP INCREMENT', 4, 0),
-	(18, 'JENIS DOK PABEAN', 0, 'GRUP PABEAN', 6, 0),
-	(24, 'JENIS SATUAN BARANG', 0, 'GRUP SATUAN', 7, 0),
-	(9, 'INCREMENT RENCANA \r\n\r\nPEMBELIAN', 4, 'Incremental control rencana \r\n\r\npembelian', '2012', 39),
-	(10, 'JENIS TRANSAKSI \r\n\r\nBARANG', 0, 'GRUP JENIS TRANSAKSI BARANG', 5, 0),
-	(11, 'Pembelian', 5, 'Jenis Transaksi Pembelian', NULL, 0),
-	(12, 'Penjualan', 5, 'Jenis Transaksi Penjualan', NULL, 0),
-	(13, 'INCREMENT RENCANA PENJUALAN', 4, 'Incremental control rencana penjualan', '2012', 0),
-	(14, 'INCREMENT MAPPING BC 23', 4, 'Incremental control Mapping Dokumen BC 2.3', '2012', 0),
-	(16, 'INCREMENT KONVERSI', 4, 'Incremental control Konversi Produksi', '2012', 0),
-	(17, 'INCREMENT opname', 4, 'Incremental control Konversi Produksi', '2012', 0),
-	(15, 'INCREMENT MUTASI', 4, 'Incremental control Mutasi Dokumen', '2012', 0),
-	(19, 'BC 3.0', 6, 'Dokumen Pabean Ekspor', '2012', 0),
-	(20, 'BC 2.5', 6, 'Dokumen Pabean DPIL', '2012', 0),
-	(22, 'BC 2.7 Inward', 6, 'Dokumen Pemasukan dari KB Lain', '2012', 0),
-	(23, 'BC 2.7 Outward', 6, 'Dokumen Pengeluaran menuju KB Lain', '2012', 0),
-	(21, 'INCREMENT DOK PABEAN', 4, 'Incremental control Dokumen Pabean', '2012', 0),
-	(25, 'PCE', 7, 'Piece', null, 0);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (1, 0, NULL, 'Grup', 'Grup Untuk \r\n\r\nGrup', '1', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (2, 0, NULL, 'JENIS INVENTORY', 'Grup Untuk \r\n\r\nJenis Inventory', '2', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (3, 0, NULL, 'METODE INVENTORY', 'Metode \r\n\r\ninventory yang \r\n\r\ndigunakan', '3', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (4, 0, NULL, 'JENIS INCREMENT', 'GRUP INCREMENT', '4', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (5, 0, NULL, 'JENIS TRANSAKSI \r\n\r\nBARANG', 'GRUP JENIS TRANSAKSI BARANG', '5', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (6, 0, NULL, 'JENIS DOK PABEAN', 'GRUP PABEAN', '6', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (7, 0, NULL, 'JENIS SATUAN BARANG', 'GRUP SATUAN', '7', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (8, 0, NULL, 'NEGARA', 'GRUP REFERENSI NEGARA', '8', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (9, 0, NULL, 'JENIS USAHA', 'GRUP REFERENSI JENIS USAHA', '9', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (10, 0, NULL, 'BENTUK USAHA', 'GRUP REFERENSI BENTUK USAHA', '10', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (11, 0, NULL, 'JENIS ID', 'GRUP REFERENSI JENIS IDENTITAS', '11', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (12, 0, NULL, 'JENIS BARANG', 'GRUP JENIS BARANG', '12', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (51, 2, NULL, 'FISIK', 'Jenis \r\n\r\nInventory Fisik', NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (52, 2, NULL, 'VIRTUAL', 'Jenis \r\n\r\nInventory \r\n\r\nVirtual', NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (53, 3, NULL, 'FIFO', 'First In \r\n\r\nFirst Out', NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (54, 3, NULL, 'LIFO', 'Last In \r\n\r\nFirst Out', NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (61, 4, '1', 'INCREMENT RENCANA \r\n\r\nPEMBELIAN', 'Incremental control rencana \r\n\r\npembelian', '2012', 39);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (62, 4, '2', 'INCREMENT RENCANA PENJUALAN', 'Incremental control rencana penjualan', '2012', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (63, 4, '3', 'INCREMENT MAPPING BC 23', 'Incremental control Mapping Dokumen BC 2.3', '2012', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (64, 4, '4', 'INCREMENT MUTASI', 'Incremental control Mutasi Dokumen', '2012', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (65, 4, '5', 'INCREMENT KONVERSI', 'Incremental control Konversi Produksi', '2012', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (66, 4, '6', 'INCREMENT OPNAME', 'Incremental control Konversi Produksi', '2012', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (67, 4, '7', 'INCREMENT DOK PABEAN', 'Incremental control Dokumen Pabean', '2012', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (81, 5, NULL, 'Pembelian', 'Jenis Transaksi Pembelian', NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (82, 5, NULL, 'Penjualan', 'Jenis Transaksi Penjualan', NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (101, 6, NULL, 'BC 3.0', 'Dokumen Pabean Ekspor', '2012', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (102, 6, NULL, 'BC 2.5', 'Dokumen Pabean DPIL', '2012', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (103, 6, NULL, 'BC 2.7 Inward', 'Dokumen Pemasukan dari KB Lain', '2012', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (104, 6, NULL, 'BC 2.7 Outward', 'Dokumen Pengeluaran menuju KB Lain', '2012', NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (401, 7, 'PCE', 'Piece', 'Piece', NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (402, 7, 'YRD', 'Yard', 'Yard', NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (151, 8, 'AD', 'Andorra', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (152, 8, 'AF', 'Afghanistan', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (153, 8, 'AG', 'Antigua and Barbuda', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (154, 8, 'AI', 'Anguilla', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (155, 8, 'AL', 'Albania', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (156, 8, 'AM', 'Armenia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (157, 8, 'AN', 'Netherlands Antilles', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (158, 8, 'AO', 'Angola', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (159, 8, 'AQ', 'Antarctica', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (160, 8, 'AR', 'Argentina', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (161, 8, 'AS', 'American Samoa', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (162, 8, 'AT', 'Austria', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (163, 8, 'AU', 'Australia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (164, 8, 'AW', 'Aruba', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (165, 8, 'AZ', 'Azerbaijan', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (166, 8, 'BA', 'Bosnia-Herzegovina', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (167, 8, 'BB', 'Barbados', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (168, 8, 'BD', 'Bangladesh', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (169, 8, 'BE', 'Belgium', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (170, 8, 'BF', 'Burkina Faso', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (171, 8, 'BG', 'Bulgaria', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (172, 8, 'BH', 'Bahrain', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (173, 8, 'BI', 'Burundi', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (174, 8, 'BJ', 'Benin', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (175, 8, 'BM', 'Bermuda', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (176, 8, 'BN', 'Brunei Darussalam', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (177, 8, 'BO', 'Bolivia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (178, 8, 'BR', 'Brazil', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (179, 8, 'BS', 'Bahamas', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (180, 8, 'BT', 'Bhutan', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (181, 8, 'BV', 'Bouvet Island', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (182, 8, 'BW', 'Botswana', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (183, 8, 'BY', 'Belarus', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (184, 8, 'BZ', 'Belize', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (185, 8, 'CA', 'CANADA', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (186, 8, 'CC', 'Cocos (Keeling) Islands', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (187, 8, 'CD', 'Congo (Democratic Republic)', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (188, 8, 'CF', 'Central African Republic', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (189, 8, 'CG', 'Congo', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (190, 8, 'CH', 'Switzerland', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (191, 8, 'CI', 'Ivory Coast (Cote D\'Ivoire)', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (192, 8, 'CK', 'Cook Islands', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (193, 8, 'CL', 'Chile', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (194, 8, 'CM', 'Cameroon', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (195, 8, 'CN', 'China', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (196, 8, 'CO', 'Colombia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (197, 8, 'CR', 'Costa Rica', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (198, 8, 'CU', 'Cuba', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (199, 8, 'CV', 'Cape Verde', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (200, 8, 'CX', 'Christmas Island', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (201, 8, 'CY', 'Cyprus', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (202, 8, 'CZ', 'Czech Republic', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (203, 8, 'DE', 'Germany', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (204, 8, 'DJ', 'Djibouti', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (205, 8, 'DK', 'Denmark', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (206, 8, 'DM', 'Dominica', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (207, 8, 'DO', 'Dominican Republic', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (208, 8, 'DZ', 'Algeria', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (209, 8, 'EC', 'Ecuador', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (210, 8, 'EE', 'Estonia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (211, 8, 'EG', 'Egypt', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (212, 8, 'ER', 'Eritrea', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (213, 8, 'ES', 'Spain', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (214, 8, 'ET', 'Ethiopia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (215, 8, 'FI', 'Finland', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (216, 8, 'FJ', 'Fiji', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (217, 8, 'FK', 'Falkland Islands', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (218, 8, 'FM', 'Micronesia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (219, 8, 'FO', 'Faroe Islands', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (220, 8, 'FR', 'France', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (221, 8, 'FX', 'France (European Territory)', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (222, 8, 'GA', 'Gabon', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (223, 8, 'GD', 'Grenada', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (224, 8, 'GE', 'Georgia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (225, 8, 'GF', 'French Guiana', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (226, 8, 'GH', 'Ghana', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (227, 8, 'GI', 'Gibraltar', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (228, 8, 'GL', 'Greenland', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (229, 8, 'GM', 'Gambia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (230, 8, 'GN', 'Guinea', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (231, 8, 'GP', 'Guadeloupe', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (232, 8, 'GQ', 'Equatorial Guinea', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (233, 8, 'GR', 'Greece', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (234, 8, 'GS', 'S. Georgia & S. Sandwich Isls.', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (235, 8, 'GT', 'Guatemala', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (236, 8, 'GU', 'Guam', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (237, 8, 'GW', 'Guinea Bissau', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (238, 8, 'GY', 'Guyana', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (239, 8, 'HK', 'Hong Kong', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (240, 8, 'HM', 'Heard and McDonald Islands', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (241, 8, 'HN', 'Honduras', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (242, 8, 'HR', 'Croatia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (243, 8, 'HT', 'Haiti', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (244, 8, 'HU', 'Hungary', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (245, 8, 'ID', 'Indonesia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (246, 8, 'IE', 'Ireland', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (247, 8, 'IL', 'Israel', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (248, 8, 'IN', 'India', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (249, 8, 'IO', 'British Indian Ocean Territory', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (250, 8, 'IQ', 'Iraq', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (251, 8, 'IR', 'Iran', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (252, 8, 'IS', 'Iceland', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (253, 8, 'IT', 'Italy', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (254, 8, 'JM', 'Jamaica', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (255, 8, 'JO', 'Jordan', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (256, 8, 'JP', 'Japan', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (257, 8, 'KE', 'Kenya', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (258, 8, 'KG', 'Kyrgyzstan', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (259, 8, 'KH', 'Cambodia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (260, 8, 'KI', 'Kiribati', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (261, 8, 'KM', 'Comoros', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (262, 8, 'KN', 'Saint Kitts & Nevis Anguilla', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (263, 8, 'KP', 'North Korea', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (264, 8, 'KR', 'South Korea', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (265, 8, 'KW', 'Kuwait', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (266, 8, 'KY', 'Cayman Islands', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (267, 8, 'KZ', 'Kazakhstan', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (268, 8, 'LA', 'Laos', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (269, 8, 'LB', 'Lebanon', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (270, 8, 'LC', 'Saint Lucia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (271, 8, 'LI', 'Liechtenstein', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (272, 8, 'LK', 'Sri Lanka', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (273, 8, 'LR', 'Liberia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (274, 8, 'LS', 'Lesotho', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (275, 8, 'LT', 'Lithuania', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (276, 8, 'LU', 'Luxembourg', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (277, 8, 'LV', 'Latvia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (278, 8, 'LY', 'Libya', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (279, 8, 'MA', 'Morocco', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (280, 8, 'MC', 'Monaco', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (281, 8, 'MD', 'Moldova', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (282, 8, 'MG', 'Madagascar', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (283, 8, 'MH', 'Marshall Islands', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (284, 8, 'MK', 'Macedonia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (285, 8, 'ML', 'Mali', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (286, 8, 'MM', 'Myanmar', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (287, 8, 'MN', 'Mongolia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (288, 8, 'MO', 'Macau', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (289, 8, 'MP', 'Northern Mariana Islands', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (290, 8, 'MQ', 'Martinique', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (291, 8, 'MR', 'Mauritania', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (292, 8, 'MS', 'Montserrat', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (293, 8, 'MT', 'Malta', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (294, 8, 'MU', 'Mauritius', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (295, 8, 'MV', 'Maldives', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (296, 8, 'MW', 'Malawi', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (297, 8, 'MX', 'Mexico', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (298, 8, 'MY', 'Malaysia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (299, 8, 'MZ', 'Mozambique', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (300, 8, 'NA', 'Namibia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (301, 8, 'NC', 'New Caledonia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (302, 8, 'NE', 'Niger', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (303, 8, 'NF', 'Norfolk Island', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (304, 8, 'NG', 'Nigeria', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (305, 8, 'NI', 'Nicaragua', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (306, 8, 'NL', 'Netherlands', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (307, 8, 'NO', 'Norway', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (308, 8, 'NP', 'Nepal', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (309, 8, 'NR', 'Nauru', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (310, 8, 'NU', 'Niue', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (311, 8, 'NZ', 'New Zealand', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (312, 8, 'OM', 'Oman', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (313, 8, 'PA', 'Panama', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (314, 8, 'PE', 'Peru', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (315, 8, 'PF', 'Polynesia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (316, 8, 'PG', 'Papua New Guinea', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (317, 8, 'PH', 'Philippines', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (318, 8, 'PK', 'Pakistan', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (319, 8, 'PL', 'Poland', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (320, 8, 'PM', 'Saint Pierre and Miquelon', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (321, 8, 'PN', 'Pitcairn', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (322, 8, 'PR', 'Puerto Rico', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (323, 8, 'PS', 'Palestinian Territory', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (324, 8, 'PT', 'Portugal', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (325, 8, 'PW', 'Palau', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (326, 8, 'PY', 'Paraguay', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (327, 8, 'QA', 'Qatar', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (328, 8, 'RE', 'Reunion', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (329, 8, 'RO', 'Romania', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (330, 8, 'RU', 'Russian Federation', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (331, 8, 'RW', 'Rwanda', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (332, 8, 'SA', 'Saudi Arabia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (333, 8, 'SB', 'Solomon Islands', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (334, 8, 'SC', 'Seychelles', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (335, 8, 'SD', 'Sudan', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (336, 8, 'SE', 'Sweden', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (337, 8, 'SG', 'Singapore', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (338, 8, 'SH', 'Saint Helena', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (339, 8, 'SI', 'Slovenia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (340, 8, 'SK', 'Slovakia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (341, 8, 'SL', 'Sierra Leone', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (342, 8, 'SM', 'San Marino', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (343, 8, 'SN', 'Senegal', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (344, 8, 'SO', 'Somalia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (345, 8, 'SR', 'Suriname', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (346, 8, 'ST', 'Sao Tome and Principe', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (347, 8, 'SV', 'El Salvador', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (348, 8, 'SY', 'Syrian Arab Republic', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (349, 8, 'SZ', 'Swaziland', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (350, 8, 'TC', 'Turks and Caicos Islands', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (351, 8, 'TD', 'Chad', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (352, 8, 'TF', 'French Southern Territories', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (353, 8, 'TG', 'Togo', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (354, 8, 'TH', 'Thailand', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (355, 8, 'TJ', 'Tajikistan', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (356, 8, 'TK', 'Tokelau', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (357, 8, 'TM', 'Turkmenistan', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (358, 8, 'TN', 'Tunisia', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (359, 8, 'TO', 'Tonga', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (360, 8, 'TP', 'East Timor', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (361, 8, 'TR', 'Turkey', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (362, 8, 'TT', 'Trinidad and Tobago', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (363, 8, 'TV', 'Tuvalu', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (364, 8, 'TW', 'Taiwan', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (365, 8, 'TZ', 'Tanzania', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (366, 8, 'UG', 'Uganda', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (367, 8, 'US', 'UNITED STATES', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (368, 8, 'VA', 'Holy See (Vatican)', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (369, 8, 'VC', 'Saint Vincent & Grenadines', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (370, 8, 'WS', 'Samoa', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (371, 8, 'YT', 'Mayotte', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (372, 8, 'ZA', 'South Africa', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (121, 12, '1', 'Bahan Baku', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (122, 12, '2', 'Bahan Penolong', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (123, 12, '3', 'Mesin/SparePart', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (124, 12, '4', 'Peralatan Pabrik', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (125, 12, '5', 'Peralatan Perkantoran', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (126, 12, '6', 'Peralatan Konstruksi', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (127, 12, '7', 'Barang Reimpor TPB', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (128, 12, '8', 'Barang Contoh/Test', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (129, 12, '9', 'Lainnya', NULL, NULL, NULL);
+INSERT INTO `inventory_referensi` (`id`, `grup`, `kode`, `nama`, `keterangan`, `nilai`, `num`) VALUES (130, 12, '10', 'Lebih dari 1 Jenis Barang ( 1-6)', NULL, NULL, NULL);
+
 
 INSERT INTO `inventory_perusahaan` (`id`, `nama`, `alamat`, `keterangan`, `pemilik`, `area`, `telp`, `mobile`, `email`) 
 
@@ -60,15 +298,14 @@ VALUES
 
  
 
-INSERT INTO `inventory_barang` (`id`, `nama`, `merk`, `kode`, `harga`, `satuan_id`, `tag`, `keterangan`, `perusahaan_id`) VALUES (1, 'LED Monitor 17"', 'Samsung', 'LMS', 1200000.00, 25, 'monitor led', NULL, NULL);
-INSERT INTO `inventory_barang` (`id`, `nama`, `merk`, `kode`, `harga`, `satuan_id`, `tag`, `keterangan`, `perusahaan_id`) VALUES (2, 'LCD Monitor 19"', 'DELL', 'LMD', 1100000.00, 25, 'lcd monitor', NULL, NULL);
-INSERT INTO `inventory_barang` (`id`, `nama`, `merk`, `kode`, `harga`, `satuan_id`, `tag`, `keterangan`, `perusahaan_id`) VALUES (3, 'Wifi Router b/g/n', 'Linksys', 'WRL', 320000.00, 25, 'wifi router hub wireless', NULL, NULL);
-INSERT INTO `inventory_barang` (`id`, `nama`, `merk`, `kode`, `harga`, `satuan_id`, `tag`, `keterangan`, `perusahaan_id`) VALUES (4, 'Mother Board Intel PC 5400', 'ASUS', 'MBA', 2300000.00, 25, 'mother board mobo intel', NULL, NULL);
-INSERT INTO `inventory_barang` (`id`, `nama`, `merk`, `kode`, `harga`, `satuan_id`, `tag`, `keterangan`, `perusahaan_id`) VALUES (5, 'Keyboard USB', 'HP', 'KUH', 175000.00, 25, 'keyboard', NULL, NULL);
-INSERT INTO `inventory_barang` (`id`, `nama`, `merk`, `kode`, `harga`, `satuan_id`, `tag`, `keterangan`, `perusahaan_id`) VALUES (35, 'VGA Card Ati Radeon 9100 1.5GB', 'ATI', 'VCA', 2200000.00, 25, 'vga card ati', NULL, NULL);
-INSERT INTO `inventory_barang` (`id`, `nama`, `merk`, `kode`, `harga`, `satuan_id`, `tag`, `keterangan`, `perusahaan_id`) VALUES (36, 'Memory DDR 3 PC 5300 8GB', 'VGEN', 'VGN', 560000.00, 25, 'memory ddr3', NULL, NULL);
-INSERT INTO `inventory_barang` (`id`, `nama`, `merk`, `kode`, `harga`, `satuan_id`, `tag`, `keterangan`, `perusahaan_id`) VALUES (37, 'Hardisk HDD 500 GB', 'SEAGATE', 'HDS', 475000.00, 25, 'hardisk 500', NULL, NULL);
-
+INSERT INTO `inventory_barang` (`id`, `nama`, `uraian`, `merk`, `kode`, `harga`, `satuan_id`, `kemasan_id`, `tag`, `keterangan`, `perusahaan_id`, `hs_id`) VALUES (1, 'LED Monitor 17"', NULL, 'Samsung', 'LMS', 1200000.00, 401, NULL, 'monitor led', NULL, NULL, NULL);
+INSERT INTO `inventory_barang` (`id`, `nama`, `uraian`, `merk`, `kode`, `harga`, `satuan_id`, `kemasan_id`, `tag`, `keterangan`, `perusahaan_id`, `hs_id`) VALUES (2, 'LCD Monitor 19"', NULL, 'DELL', 'LMD', 1100000.00, 402, NULL, 'lcd monitor', NULL, NULL, NULL);
+INSERT INTO `inventory_barang` (`id`, `nama`, `uraian`, `merk`, `kode`, `harga`, `satuan_id`, `kemasan_id`, `tag`, `keterangan`, `perusahaan_id`, `hs_id`) VALUES (3, 'Wifi Router b/g/n', NULL, 'Linksys', 'WRL', 320000.00, 401, NULL, 'wifi router hub wireless', NULL, NULL, NULL);
+INSERT INTO `inventory_barang` (`id`, `nama`, `uraian`, `merk`, `kode`, `harga`, `satuan_id`, `kemasan_id`, `tag`, `keterangan`, `perusahaan_id`, `hs_id`) VALUES (4, 'Mother Board Intel PC 5400', NULL, 'ASUS', 'MBA', 2300000.00, 53, NULL, 'mother board mobo intel', NULL, NULL, NULL);
+INSERT INTO `inventory_barang` (`id`, `nama`, `uraian`, `merk`, `kode`, `harga`, `satuan_id`, `kemasan_id`, `tag`, `keterangan`, `perusahaan_id`, `hs_id`) VALUES (5, 'Keyboard USB', NULL, 'HP', 'KUH', 175000.00, 401, NULL, 'keyboard', NULL, NULL, NULL);
+INSERT INTO `inventory_barang` (`id`, `nama`, `uraian`, `merk`, `kode`, `harga`, `satuan_id`, `kemasan_id`, `tag`, `keterangan`, `perusahaan_id`, `hs_id`) VALUES (35, 'VGA Card Ati Radeon 9100 1.5GB', NULL, 'ATI', 'VCA', 2200000.00, 401, NULL, 'vga card ati', NULL, NULL, NULL);
+INSERT INTO `inventory_barang` (`id`, `nama`, `uraian`, `merk`, `kode`, `harga`, `satuan_id`, `kemasan_id`, `tag`, `keterangan`, `perusahaan_id`, `hs_id`) VALUES (36, 'Memory DDR 3 PC 5300 8GB', NULL, 'VGEN', 'VGN', 560000.00, 401, NULL, 'memory ddr3', NULL, NULL, NULL);
+INSERT INTO `inventory_barang` (`id`, `nama`, `uraian`, `merk`, `kode`, `harga`, `satuan_id`, `kemasan_id`, `tag`, `keterangan`, `perusahaan_id`, `hs_id`) VALUES (37, 'Hardisk HDD 500 GB', NULL, 'SEAGATE', 'HDS', 475000.00, 401, NULL, 'hardisk 500', NULL, NULL, NULL);
 
 INSERT INTO `inventory_customer` (`id`, `nama`, `alamat`, `area`, `telp`, `mobile`, `email`, `keterangan`) VALUES (1, 'ZYREC ltd', 'Jl. Daan Mogot No.59\nJakarta 11470\nIndonesia', '622', '5653311', '021332', 'zyrec@gmail.com', NULL);
 INSERT INTO `inventory_customer` (`id`, `nama`, `alamat`, `area`, `telp`, `mobile`, `email`, `keterangan`) VALUES (2, 'ACER Computers', 'Acer America Corporation\n333 West San Carlos Street\nSuite 1500\nSan Jose, CA 95110', '800', '8162237', NULL, 'support@acer.com', NULL);
@@ -87,10 +324,10 @@ INSERT INTO `inventory_harga` (`id`, `harga`, `awal`, `akhir`, `keterangan`, `ba
 
 
 
-INSERT INTO `inventory_inventory` (`id`, `nama`, `alamat`, `keterangan`, `jenis_id`, `metode_id`, `perusahaan_id`) VALUES
-	(1, 'Main Warehouse', 'Rawamangun', 'Gudang utama', 3, 6, NULL),
-	(2, 'WIP', 'Rawamangun', 'Barang dalam Proses', 3, 6, NULL),
-	(3, 'Finished', 'Rawamangun', 'Finished', 3, 6, NULL);
+INSERT INTO `inventory_inventory` (`id`, `nama`, `alamat`, `keterangan`, `jenis_id`, `metode_id`, `perusahaan_id`) VALUES (1, 'Main Warehouse', 'Rawamangun', 'Gudang utama', 51, 53, NULL);
+INSERT INTO `inventory_inventory` (`id`, `nama`, `alamat`, `keterangan`, `jenis_id`, `metode_id`, `perusahaan_id`) VALUES (2, 'WIP', 'Rawamangun', 'Barang dalam Proses', 51, 53, NULL);
+INSERT INTO `inventory_inventory` (`id`, `nama`, `alamat`, `keterangan`, `jenis_id`, `metode_id`, `perusahaan_id`) VALUES (3, 'Finished', 'Rawamangun', 'Finished', 51, 53, NULL);
+
 
 INSERT INTO `inventory_barangdiinventory` (`id`, `barang_id`, `inventory_id`, `saldo`) VALUES
 	(1, 1, 1, 0.00),

@@ -1,0 +1,79 @@
+<div style="
+            background-color:#393939;border-color: #808080;font-size: 14px;
+            color:#ffffff;width: 100%;height:25px;padding-left: 0px"
+        >Form Detail Partner
+</div>
+<div style="
+            border-bottom:1px solid #393939; height:3px"
+        >&nbsp;</div><br/>
+<form dojoType="dojox.form.Manager" id='formPartner'>
+    <table border="0" width="100%" cellpadding="0" cellspacing="0">
+        <input type="hidden" style="width:60%;" id="id"
+               name='id'>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">Nama</td>
+            <td width="70%" class="formcell"><input dojoType="dijit.form.TextBox" style="width:60%;"
+                                                    name='nama'></td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">NPWP</td>
+            <td width="70%" class="formcell"><input dojoType="dijit.form.TextBox" style="width:60%;"
+                                                    name='npwp'></td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">Niper</td>
+            <td width="70%" class="formcell"><input dojoType="dijit.form.TextBox" style="width:60%;"
+                                                    name='niper'></td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">API</td>
+            <td width="70%" class="formcell"><input dojoType="dijit.form.TextBox" style="width:60%;"
+                                                    name='api'></td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">Nomor / Tanggal SK</td>
+            <td width="70%" class="formcell">
+                <input dojoType="dijit.form.TextBox" style="width:30%;" name='sk_nomor'>
+                <input dojoType="lib.CustomDatebox" style="width:28%;" name='sk_tanggal'>&nbsp;<em>ddmmyyyy</em></td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">Alamat</td>
+            <td width="70%" class="formcell">
+                <textarea dojoType="dijit.form.Textarea" rows='3' style="width:60%;" name='alamat'></textarea>
+            </td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">Telepon</td>
+            <td width="70%" class="formcell">
+                <input dojoType="dijit.form.TextBox" style="width:60%;" name='mobile'>&nbsp;<em>mobile / HP</em>
+                <br style="margin: 6px"/>
+                <input dojoType="dijit.form.TextBox" style="width:18%;" name='area'>
+                <input dojoType="dijit.form.TextBox" style="width:40%;" name='telp'>&nbsp;<em>telepon</em>
+
+            </td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">Email</td>
+            <td width="70%" class="formcell">
+                <input dojoType="dijit.form.TextBox" style="width:60%;" style="width:60%;text-align: right"
+                       name='email'>
+            </td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">&nbsp;</td>
+            <td width="70%" class="formcell">
+                <button dojoType="dijit.form.Button" id="btnSimpanPartner">Simpan</button>
+                <button dojoType="dijit.form.Button" id="btnUpdatePartner">Update</button>
+                <button dojoType="dijit.form.Button" id="btnHapusPartner">Hapus</button>
+            </td>
+        </tr>
+        <tr class="formrow">
+            <td width="30%" class="formcell formrow">Negara</td>
+            <td width="70%" class="formcell">
+                <select dojoType="lib.CustomSelect" grup='8' kodeNama='kd_negara'
+                        style="width:60%;" style="width:60%;text-align: right"
+                        name='negara'></select>
+            </td>
+        </tr>
+    </table>
+</form>

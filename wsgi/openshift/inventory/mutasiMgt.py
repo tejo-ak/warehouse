@@ -65,7 +65,7 @@ def initMutasi(reqData):
     _apu = appUtil()
     #prepare inventory
     pbl = models.Mutasi()
-    pbl.nomor = ('00000000000000%s' % (_apu.getIncrement(15)))[-6:]
+    pbl.nomor = ('00000000000000%s' % (_apu.getIncrement(4)))[-6:]
     pbl.asal = getInvById(requtil.nvlGet('inventory_asal_id'))
     pbl.tujuan = getInvById(requtil.nvlGet('inventory_tujuan_id'))
     pbl.save()

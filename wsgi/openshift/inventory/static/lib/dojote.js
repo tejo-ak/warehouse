@@ -94,7 +94,8 @@ define(['dojo',
         dijitByName:function (name, scope) {
             var node = this.byName(name, scope);
             if (node) {
-                return dijit.getEnclosingWidget(node);
+                return dijit.
+                    (node);
             }
             return null;
         },

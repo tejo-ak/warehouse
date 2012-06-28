@@ -106,7 +106,7 @@ def initPengeluaranPabean(reqData):
     #prepare inventory
     pbl = models.DokumenPabean()
     pbl = requtil.bindRequestModel(pbl)
-    pbl.nomor = ('00000000000000%s' % (_apu.getIncrement(21)))[-6:]
+    pbl.nomor = ('00000000000000%s' % (_apu.getIncrement(7)))[-6:]
     pbl.inventory = models.Inventory.objects.get(id__exact=requtil.nvlGet('inventory_id'))
     pbl.save()
     return pbl
